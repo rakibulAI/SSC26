@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>পদার্থবিজ্ঞান শর্ট নোট | SSC-26</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #c0392b;
+  --dark: #1a1a2e;
+  --blue: #2980b9;
+  --green: #1e8449;
+  --orange: #d35400;
+  --purple: #6c3483;
+  --teal: #0e6655;
+  --gold: #b7950b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Hind Siliguri',sans-serif; background:#e8e8e8; color:#1a1a2e; }
+
+/* NAV */
+.nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: var(--dark);
+  display: flex; align-items:center; gap:8px;
+  padding: 10px 20px; flex-wrap:wrap;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+.nav-title { color:var(--red); font-weight:700; font-size:15px; margin-right:10px; }
+.nav-btn {
+  background: rgba(255,255,255,0.1); color:white;
+  border: none; padding: 5px 12px; border-radius:20px;
+  font-family:'Hind Siliguri',sans-serif; font-size:12px;
+  cursor:pointer; transition:all 0.2s; white-space:nowrap;
+}
+.nav-btn:hover, .nav-btn.active { background:var(--red); }
+
+/* PAGE LAYOUT */
+.page-container { margin-top:55px; }
+.chapter-page {
+  display: none;
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 16px 40px;
+}
+.chapter-page.active { display:block; }
+
+/* CHAPTER HEADER */
+.ch-header {
+  background: var(--dark);
+  border-radius: 12px 12px 0 0;
+  padding: 18px 28px;
+  display: flex; align-items:center; justify-content:space-between;
+}
+.ch-brand { color:var(--blue); font-size:12px; font-weight:700; letter-spacing:1px; }
+.ch-name { color:white; font-size:20px; font-weight:700; text-align:center; }
+.ch-sub { color:var(--red); font-size:14px; font-weight:600; text-align:center; }
+.ch-tag { color:#aaa; font-size:12px; }
+.wave-bar { height:5px; background:linear-gradient(90deg,#c0392b,#e74c3c,#3498db,#27ae60,#f39c12,#c0392b); }
+
+/* GRID */
+.ch-body {
+  background: #f0f0f0;
+  padding: 18px;
+  border-radius: 0 0 12px 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.ch-body.three { grid-template-columns:1fr 1fr 1fr; }
+.full { grid-column:1/-1; }
+.left { grid-column:1; }
+.right { grid-column:2; }
+
+/* CARD */
+.card {
+  background:white;
+  border-radius:10px;
+  padding:14px;
+  border:1px solid #ddd;
+  box-shadow:0 2px 8px rgba(0,0,0,0.07);
+  position:relative;
+  overflow:hidden;
+}
+.card::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:4px;
+}
+.card.blue::before { background:var(--blue); }
+.card.red::before { background:var(--red); }
+.card.green::before { background:var(--green); }
+.card.orange::before { background:var(--orange); }
+.card.purple::before { background:var(--purple); }
+.card.teal::before { background:var(--teal); }
+.card.gold::before { background:var(--gold); }
+
+/* CARD TITLE */
+.ct {
+  font-size:14px; font-weight:700;
+  padding:5px 12px; border-radius:20px;
+  display:inline-flex; align-items:center; gap:6px;
+  margin-bottom:10px;
+}
+.ct.blue { background:#d6eaf8; color:#1a5276; }
+.ct.red { background:#fdedec; color:#922b21; }
+.ct.green { background:#d5f5e3; color:#145a32; }
+.ct.orange { background:#fdebd0; color:#784212; }
+.ct.purple { background:#e8daef; color:#4a235a; }
+.ct.teal { background:#d0ece7; color:#0b5345; }
+.ct.gold { background:#fef9e7; color:#7d6608; }
+
+/* FORMULA */
+.fbox {
+  background:var(--dark); color:#f1c40f;
+  padding:9px 14px; border-radius:8px;
+  font-size:14px; font-weight:700;
+  text-align:center; margin:6px 0;
+  font-family:monospace; letter-spacing:0.5px;
+}
+.fbox.blue { background:#1a5276; color:#aed6f1; }
+.fbox.green { background:#145a32; color:#a9dfbf; }
+.fbox.red { background:#922b21; color:#fadbd8; }
+.fbox.orange { background:#784212; color:#fad7a0; }
+.fbox.purple { background:#4a235a; color:#d7bde2; }
+
+/* HIGHLIGHT */
+.hl { background:#fef9e7; border-left:4px solid #f39c12; padding:7px 11px; border-radius:0 6px 6px 0; font-size:12.5px; margin:6px 0; }
+.hl.blue { background:#eaf4fb; border-color:var(--blue); color:#154360; }
+.hl.red { background:#fdedec; border-color:var(--red); color:#922b21; }
+.hl.green { background:#d5f5e3; border-color:var(--green); color:#145a32; }
+
+/* TABLE */
+.tbl { width:100%; border-collapse:collapse; margin:8px 0; font-size:12px; }
+.tbl th { background:var(--dark); color:white; padding:6px 8px; text-align:center; }
+.tbl td { border:1px solid #ddd; padding:5px 8px; text-align:center; }
+.tbl tr:nth-child(even) td { background:#f5f5f5; }
+
+/* LIST */
+.ch-list { padding-left:16px; }
+.ch-list li { font-size:12.5px; line-height:1.9; color:#333; }
+.ch-list li strong { color:var(--dark); }
+
+/* REMEMBER */
+.rem {
+  background:#fdedec; border:2px dashed var(--red);
+  padding:8px 12px; border-radius:8px;
+  font-size:12.5px; color:#922b21; font-weight:600;
+  margin:8px 0;
+}
+
+/* NOTE */
+.note {
+  background:#eaf4fb; border-left:4px solid var(--blue);
+  padding:7px 11px; border-radius:0 6px 6px 0;
+  font-size:12px; color:#154360; margin:6px 0;
+}
+
+/* BADGE */
+.badge {
+  display:inline-block; padding:2px 8px; border-radius:12px;
+  font-size:11px; font-weight:700; color:white; margin:2px;
+}
+.badge.red { background:var(--red); }
+.badge.blue { background:var(--blue); }
+.badge.green { background:var(--green); }
+.badge.orange { background:var(--orange); }
+
+/* FLOW */
+.flow { display:flex; align-items:center; flex-wrap:wrap; gap:5px; margin:8px 0; }
+.flow-item { background:var(--blue); color:white; padding:4px 10px; border-radius:16px; font-size:12px; font-weight:600; }
+.flow-item.red { background:var(--red); }
+.flow-item.green { background:var(--green); }
+.flow-item.orange { background:var(--orange); }
+.flow-arr { color:var(--red); font-size:16px; font-weight:900; }
+
+/* TWO-COL LIST */
+.two-list { display:grid; grid-template-columns:1fr 1fr; gap:5px; margin:6px 0; }
+.li-item { background:#f5f5f5; border-radius:6px; padding:5px 8px; font-size:12px; }
+
+/* CANVAS SIM */
+.sim-wrap {
+  background:#0a0a1a; border-radius:10px;
+  padding:10px; margin:8px 0;
+  text-align:center;
+}
+.sim-label { color:#7fb3d3; font-size:11px; margin-bottom:6px; font-weight:600; letter-spacing:1px; }
+canvas { border-radius:6px; display:block; margin:0 auto; }
+.sim-controls { display:flex; gap:8px; justify-content:center; margin-top:8px; flex-wrap:wrap; }
+.sim-btn {
+  background:var(--blue); color:white;
+  border:none; padding:4px 12px; border-radius:14px;
+  font-family:'Hind Siliguri',sans-serif; font-size:11px;
+  cursor:pointer; font-weight:600;
+}
+.sim-btn:hover { background:var(--red); }
+.sim-info { color:#aaa; font-size:11px; margin-top:5px; }
+
+/* COVER */
+.cover-page {
+  display:none;
+  max-width:700px;
+  margin:30px auto;
+  padding:0 16px 40px;
+}
+.cover-page.active { display:block; }
+.cover-inner {
+  background:linear-gradient(135deg,#f5f5f5 55%,#c0392b 55%);
+  border-radius:16px;
+  min-height:500px;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:60px 40px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.2);
+  position:relative;
+  overflow:hidden;
+}
+.cover-logo {
+  position:absolute; top:20px; left:20px;
+  background:var(--dark); color:white;
+  padding:6px 14px; border-radius:6px;
+  font-size:12px; font-weight:700; letter-spacing:1px;
+}
+.cover-ssc { font-size:56px; font-weight:700; color:var(--dark); }
+.cover-subj { font-size:64px; font-weight:700; color:var(--red); text-shadow:2px 2px 0 rgba(0,0,0,0.1); }
+.cover-script { font-size:22px; color:#666; font-style:italic; margin:8px 0; }
+.cover-badge-wrap {
+  background:var(--dark); color:white;
+  padding:12px 32px; border-radius:30px;
+  font-size:18px; font-weight:700; letter-spacing:2px;
+  margin-top:16px;
+}
+.ch-chips { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:14px; }
+.ch-chip { background:rgba(26,26,46,0.15); color:var(--dark); padding:4px 12px; border-radius:14px; font-size:12px; font-weight:600; }
+
+p.sm { font-size:12.5px; color:#333; line-height:1.8; }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <span class="nav-title">🔬 পদার্থবিজ্ঞান SSC-26</span>
+  <button class="nav-btn active" onclick="show('cover')">🏠 কভার</button>
+  <button class="nav-btn" onclick="show('ch1')">অধ্যায় ১</button>
+  <button class="nav-btn" onclick="show('ch2')">অধ্যায় ২</button>
+  <button class="nav-btn" onclick="show('ch3')">অধ্যায় ৩</button>
+  <button class="nav-btn" onclick="show('ch4')">অধ্যায় ৪</button>
+  <button class="nav-btn" onclick="show('ch7')">অধ্যায় ৭</button>
+  <button class="nav-btn" onclick="show('ch8')">অধ্যায় ৮</button>
+  <button class="nav-btn" onclick="show('ch10')">অধ্যায় ১০</button>
+</nav>
+
+<div class="page-container">
+
+<!-- COVER -->
+<div id="cover" class="cover-page active">
+  <div class="cover-inner">
+    <div class="cover-logo">REDWAN'S METHOD</div>
+    <div class="cover-ssc">SSC-26</div>
+    <div class="cover-subj">পদার্থবিজ্ঞান</div>
+    <div class="cover-script">Short Note</div>
+    <div class="cover-badge-wrap">REVISION MATERIAL</div>
+    <div class="ch-chips" style="margin-top:18px;">
+      <div class="ch-chip">অধ্যায় ১: ভৌত রাশি</div>
+      <div class="ch-chip">অধ্যায় ২: গতি</div>
+      <div class="ch-chip">অধ্যায় ৩: বল</div>
+      <div class="ch-chip">অধ্যায় ৪: কাজ-শক্তি</div>
+      <div class="ch-chip">অধ্যায় ৭: তরঙ্গ ও শব্দ</div>
+      <div class="ch-chip">অধ্যায় ৮: আলোর প্রতিফলন</div>
+      <div class="ch-chip">অধ্যায় ১০: স্থির বিদ্যুৎ</div>
+    </div>
+    <div style="color:#888;font-size:13px;margin-top:20px;">by Junnurain Khan</div>
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 1 ═══════════════ -->
+<div id="ch1" class="chapter-page">
+  <div class="ch-header">
+    <div class="ch-brand">REDWAN'S METHOD</div>
+    <div><div class="ch-sub">পদার্থবিজ্ঞান</div><div class="ch-name">অধ্যায় ০১: ভৌত রাশি ও পরিমাপ</div></div>
+    <div class="ch-tag">SHORT NOTES</div>
+  </div>
+  <div class="wave-bar"></div>
+  <div class="ch-body">
+
+    <div class="card blue">
+      <div class="ct blue">📏 ভৌত রাশি ও প্রকারভেদ</div>
+      <p class="sm">যা পরিমাপযোগ্য ও সংখ্যায় প্রকাশ করা যায় তাই <strong>ভৌত রাশি</strong>।</p>
+      <div class="two-list" style="margin-top:8px;">
+        <div class="li-item"><strong>মূল রাশি:</strong> স্বাধীন, ৭টি</div>
+        <div class="li-item"><strong>লব্ধ রাশি:</strong> মূল থেকে তৈরি</div>
+      </div>
+      <div class="hl blue" style="margin-top:8px;">
+        <strong>৭টি মূল রাশি:</strong> দৈর্ঘ্য, ভর, সময়, তড়িৎ প্রবাহ, তাপমাত্রা, দীপন তীব্রতা, পদার্থের পরিমাণ
+      </div>
+      <table class="tbl">
+        <tr><th>মূল রাশি</th><th>SI একক</th><th>প্রতীক</th></tr>
+        <tr><td>দৈর্ঘ্য</td><td>মিটার</td><td>m</td></tr>
+        <tr><td>ভর</td><td>কিলোগ্রাম</td><td>kg</td></tr>
+        <tr><td>সময়</td><td>সেকেন্ড</td><td>s</td></tr>
+        <tr><td>তড়িৎ প্রবাহ</td><td>অ্যাম্পিয়ার</td><td>A</td></tr>
+        <tr><td>তাপমাত্রা</td><td>কেলভিন</td><td>K</td></tr>
+        <tr><td>দীপন তীব্রতা</td><td>ক্যান্ডেলা</td><td>cd</td></tr>
+        <tr><td>পদার্থের পরিমাণ</td><td>মোল</td><td>mol</td></tr>
+      </table>
+    </div>
+
+    <div class="card red">
+      <div class="ct red">🎯 স্কেলার ও ভেক্টর রাশি</div>
+      <table class="tbl">
+        <tr><th>স্কেলার রাশি</th><th>ভেক্টর রাশি</th></tr>
+        <tr><td>শুধু মান আছে</td><td>মান ও দিক উভয়ই</td></tr>
+        <tr><td>দূরত্ব, দ্রুতি</td><td>সরণ, বেগ</td></tr>
+        <tr><td>ভর, কাজ</td><td>বল, ত্বরণ</td></tr>
+        <tr><td>তাপমাত্রা, শক্তি</td><td>ভরবেগ, ওজন</td></tr>
+        <tr><td>ক্ষেত্রফল, আয়তন</td><td>তড়িৎ ক্ষেত্র</td></tr>
+      </table>
+      <div class="rem">⚠️ দূরত্ব = স্কেলার, সরণ = ভেক্টর<br>দ্রুতি = স্কেলার, বেগ = ভেক্টর!</div>
+    </div>
+
+    <div class="card green">
+      <div class="ct green">🔬 পরিমাপ যন্ত্র ও নির্ভুলতা</div>
+      <table class="tbl">
+        <tr><th>যন্ত্র</th><th>পরিমাপ</th><th>নির্ভুলতা</th></tr>
+        <tr><td>স্লাইড ক্যালিপার্স</td><td>ছোট দৈর্ঘ্য</td><td>0.01 cm</td></tr>
+        <tr><td>স্ক্রু গজ</td><td>তারের ব্যাস</td><td>0.001 cm</td></tr>
+        <tr><td>ভার্নিয়ার স্কেল</td><td>সূক্ষ্ম দৈর্ঘ্য</td><td>0.1 mm</td></tr>
+        <tr><td>থামাঘড়ি</td><td>সময়</td><td>0.1 s</td></tr>
+        <tr><td>ব্যালেন্স</td><td>ভর</td><td>0.001 g</td></tr>
+      </table>
+      <div class="fbox blue" style="margin-top:8px;">ভার্নিয়ার ধ্রুবক = 1 MSD − 1 VSD</div>
+      <div class="fbox blue">স্ক্রু গজ পিচ = প্রতি আবর্তনে অগ্রগতি</div>
+    </div>
+
+    <div class="card orange">
+      <div class="ct orange">📐 উপসর্গ (Prefix) তালিকা</div>
+      <table class="tbl">
+        <tr><th>উপসর্গ</th><th>প্রতীক</th><th>মান</th></tr>
+        <tr><td>টেরা</td><td>T</td><td>10¹²</td></tr>
+        <tr><td>গিগা</td><td>G</td><td>10⁹</td></tr>
+        <tr><td>মেগা</td><td>M</td><td>10⁶</td></tr>
+        <tr><td>কিলো</td><td>k</td><td>10³</td></tr>
+        <tr><td>সেন্টি</td><td>c</td><td>10⁻²</td></tr>
+        <tr><td>মিলি</td><td>m</td><td>10⁻³</td></tr>
+        <tr><td>মাইক্রো</td><td>μ</td><td>10⁻⁶</td></tr>
+        <tr><td>ন্যানো</td><td>n</td><td>10⁻⁹</td></tr>
+      </table>
+    </div>
+
+    <div class="card purple full">
+      <div class="ct purple">📊 মাত্রা বিশ্লেষণ (Dimensional Analysis)</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div>
+          <p class="sm" style="margin-bottom:6px;"><strong>মাত্রার প্রতীক:</strong></p>
+          <ul class="ch-list">
+            <li>দৈর্ঘ্য → L</li>
+            <li>ভর → M</li>
+            <li>সময় → T</li>
+            <li>তড়িৎ প্রবাহ → I</li>
+            <li>তাপমাত্রা → θ</li>
+          </ul>
+        </div>
+        <div>
+          <p class="sm" style="margin-bottom:6px;"><strong>লব্ধ রাশির মাত্রা:</strong></p>
+          <ul class="ch-list">
+            <li>বেগ → LT⁻¹</li>
+            <li>ত্বরণ → LT⁻²</li>
+            <li>বল → MLT⁻²</li>
+            <li>কাজ → ML²T⁻²</li>
+            <li>চাপ → ML⁻¹T⁻²</li>
+          </ul>
+        </div>
+        <div>
+          <p class="sm" style="margin-bottom:6px;"><strong>আরও মাত্রা:</strong></p>
+          <ul class="ch-list">
+            <li>শক্তি → ML²T⁻²</li>
+            <li>ক্ষমতা → ML²T⁻³</li>
+            <li>ভরবেগ → MLT⁻¹</li>
+            <li>ঘনত্ব → ML⁻³</li>
+            <li>কম্পাঙ্ক → T⁻¹</li>
+          </ul>
+        </div>
+        <div>
+          <div class="hl" style="margin-top:0;">মাত্রা দিয়ে সমীকরণের সঠিকতা যাচাই করা যায়। উভয় পক্ষের মাত্রা সমান হতে হবে।</div>
+          <div class="rem" style="margin-top:6px;">মাত্রাহীন রাশি: কৌণিক সরণ, গুণাঙ্ক, অনুপাত</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 2 ═══════════════ -->
+<div id="ch2" class="chapter-page">
+  <div class="ch-header">
+    <div class="ch-brand">REDWAN'S METHOD</div>
+    <div><div class="ch-sub">পদার্থবিজ্ঞান</div><div class="ch-name">অধ্যায় ০২: গতি</div></div>
+    <div class="ch-tag">SHORT NOTES</div>
+  </div>
+  <div class="wave-bar"></div>
+  <div class="ch-body">
+
+    <div class="card blue">
+      <div class="ct blue">🏃 গতির মূল ধারণা</div>
+      <table class="tbl">
+        <tr><th>রাশি</th><th>সংজ্ঞা</th><th>প্রকার</th></tr>
+        <tr><td>দূরত্ব</td><td>মোট অতিক্রান্ত পথ</td><td>স্কেলার</td></tr>
+        <tr><td>সরণ</td><td>নির্দিষ্ট দিকে সরাসরি দূরত্ব</td><td>ভেক্টর</td></tr>
+        <tr><td>দ্রুতি</td><td>একক সময়ে দূরত্ব</td><td>স্কেলার</td></tr>
+        <tr><td>বেগ</td><td>একক সময়ে সরণ</td><td>ভেক্টর</td></tr>
+        <tr><td>ত্বরণ</td><td>একক সময়ে বেগ পরিবর্তন</td><td>ভেক্টর</td></tr>
+      </table>
+      <div class="fbox" style="margin-top:8px;">দ্রুতি = দূরত্ব/সময় | বেগ = সরণ/সময়</div>
+      <div class="fbox blue">ত্বরণ a = (v−u)/t</div>
+    </div>
+
+    <div class="card red">
+      <div class="ct red">📐 গতির সমীকরণ (৩টি মূল সূত্র)</div>
+      <div class="fbox red">① v = u + at</div>
+      <div class="fbox red">② s = ut + ½at²</div>
+      <div class="fbox red">③ v² = u² + 2as</div>
+      <div class="note" style="margin-top:8px;">
+        <strong>চলরাশি:</strong><br>
+        u = আদিবেগ (m/s) | v = শেষবেগ (m/s)<br>
+        a = ত্বরণ (m/s²) | s = সরণ (m) | t = সময় (s)
+      </div>
+      <div class="hl red" style="margin-top:6px;"><strong>n-তম সেকেন্ডে সরণ:</strong> Sₙ = u + a(2n−1)/2</div>
+    </div>
+
+    <div class="card green">
+      <div class="ct green">📊 গতির গ্রাফ বিশ্লেষণ</div>
+      <table class="tbl">
+        <tr><th>গ্রাফ</th><th>ঢাল = ?</th><th>ক্ষেত্রফল = ?</th></tr>
+        <tr><td>s−t গ্রাফ</td><td>বেগ (v)</td><td>—</td></tr>
+        <tr><td>v−t গ্রাফ</td><td>ত্বরণ (a)</td><td>সরণ (s)</td></tr>
+        <tr><td>a−t গ্রাফ</td><td>—</td><td>বেগ পরিবর্তন</td></tr>
+      </table>
+      <div class="hl green" style="margin-top:8px;">
+        সমগতিতে: v−t গ্রাফ = অনুভূমিক রেখা<br>
+        সমত্বরণে: v−t গ্রাফ = সরলরেখা<br>
+        s−t গ্রাফে বক্ররেখা = পরিবর্তনশীল বেগ
+      </div>
+
+      <!-- MOTION SIMULATION -->
+      <div class="sim-wrap">
+        <div class="sim-label">🎮 গতির সিমুলেশন (v-t গ্রাফ)</div>
+        <canvas id="motionCanvas" width="320" height="130"></canvas>
+        <div class="sim-controls">
+          <button class="sim-btn" onclick="startMotion()">▶ শুরু</button>
+          <button class="sim-btn" onclick="resetMotion()">↺ রিসেট</button>
+          <button class="sim-btn" onclick="toggleAccel()">± ত্বরণ</button>
+        </div>
+        <div class="sim-info" id="motionInfo">v=0 m/s | t=0s | s=0m</div>
+      </div>
+    </div>
+
+    <div class="card orange">
+      <div class="ct orange">🔻 মুক্তভাবে পড়ন্ত বস্তু</div>
+      <p class="sm">শুধু মাধ্যাকর্ষণের প্রভাবে নিচে পড়া।</p>
+      <div class="fbox orange" style="margin-top:8px;">g = 9.8 m/s² ≈ 10 m/s²</div>
+      <div class="fbox orange">v = gt &nbsp;|&nbsp; h = ½gt²</div>
+      <div class="fbox orange">v² = 2gh</div>
+      <div class="hl" style="margin-top:8px;">
+        উপরে নিক্ষেপে: a = −g<br>
+        সর্বোচ্চ উচ্চতায়: v = 0<br>
+        সর্বোচ্চ উচ্চতা: H = u²/2g<br>
+        মোট সময়: T = 2u/g
+      </div>
+      <div class="rem">বায়ু প্রতিরোধ উপেক্ষা করলে সব বস্তু একই হারে পড়ে!</div>
+    </div>
+
+    <div class="card purple full">
+      <div class="ct purple">🔄 গতির প্রকারভেদ ও গুরুত্বপূর্ণ সম্পর্ক</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+        <div>
+          <p class="sm"><strong>গতির প্রকার:</strong></p>
+          <ul class="ch-list" style="margin-top:6px;">
+            <li><strong>সমগতি:</strong> v ধ্রুবক, a = 0</li>
+            <li><strong>সমত্বরণ:</strong> a ধ্রুবক, ≠ 0</li>
+            <li><strong>অসম ত্বরণ:</strong> a পরিবর্তনশীল</li>
+            <li><strong>পর্যাবৃত্ত:</strong> নির্দিষ্ট পথে বারবার</li>
+            <li><strong>বৃত্তীয়:</strong> বৃত্তপথে সমদ্রুতিতে</li>
+          </ul>
+        </div>
+        <div>
+          <p class="sm"><strong>গড় বেগ ও দ্রুতি:</strong></p>
+          <div class="fbox" style="margin-top:6px;">গড় বেগ = মোট সরণ/মোট সময়</div>
+          <div class="fbox blue">গড় দ্রুতি = মোট দূরত্ব/মোট সময়</div>
+          <div class="fbox green">সমত্বরণে: গড় বেগ = (u+v)/2</div>
+        </div>
+        <div>
+          <p class="sm"><strong>বৃত্তীয় গতি:</strong></p>
+          <div class="fbox orange" style="margin-top:6px;">v = 2πr/T = rω</div>
+          <div class="fbox orange">কেন্দ্রমুখী ত্বরণ: a = v²/r = rω²</div>
+          <div class="note" style="margin-top:6px;">ω = কৌণিক বেগ (rad/s)<br>T = পর্যায়কাল</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 3 ═══════════════ -->
+<div id="ch3" class="chapter-page">
+  <div class="ch-header">
+    <div class="ch-brand">REDWAN'S METHOD</div>
+    <div><div class="ch-sub">পদার্থবিজ্ঞান</div><div class="ch-name">অধ্যায় ০৩: বল</div></div>
+    <div class="ch-tag">SHORT NOTES</div>
+  </div>
+  <div class="wave-bar"></div>
+  <div class="ch-body">
+
+    <div class="card blue">
+      <div class="ct blue">⚖️ নিউটনের গতিসূত্র</div>
+      <div class="hl blue"><strong>১ম সূত্র (জাড্যের সূত্র):</strong> বাইরে বল না থাকলে স্থির বস্তু চিরকাল স্থির এবং গতিশীল বস্তু সমবেগে চলে।</div>
+      <div class="hl" style="margin-top:6px;"><strong>২য় সূত্র:</strong> প্রযুক্ত বল = ভরবেগের পরিবর্তনের হার।</div>
+      <div class="hl green" style="margin-top:6px;"><strong>৩য় সূত্র (ক্রিয়া-প্রতিক্রিয়া):</strong> প্রতিটি ক্রিয়ার সমান ও বিপরীত প্রতিক্রিয়া আছে।</div>
+      <div class="fbox" style="margin-top:8px;">F = ma</div>
+      <div class="fbox blue">F = Δp/Δt = m(v−u)/t</div>
+      <div class="note">১ নিউটন = 1 kg·m/s² বল → 1 kg ভরে 1 m/s² ত্বরণ দেয়</div>
+    </div>
+
+    <div class="card red">
+      <div class="ct red">💥 ভরবেগ ও ভরবেগের সংরক্ষণ</div>
+      <div class="fbox red">ভরবেগ p = mv (kg·m/s)</div>
+      <div class="fbox red">আবেগ J = F·t = Δp</div>
+      <div class="hl red" style="margin-top:8px;"><strong>ভরবেগের সংরক্ষণ সূত্র:</strong><br>বাহ্যিক বল শূন্য হলে মোট ভরবেগ ধ্রুবক।</div>
+      <div class="fbox" style="margin-top:6px;">m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂</div>
+      <div class="note" style="margin-top:6px;">
+        <strong>প্রয়োগ:</strong> বন্দুক থেকে গুলি ছোড়া, রকেটের গতি, সংঘর্ষ
+      </div>
+    </div>
+
+    <div class="card green">
+      <div class="ct green">🔩 ঘর্ষণ বল</div>
+      <table class="tbl">
+        <tr><th>ঘর্ষণের প্রকার</th><th>অবস্থা</th></tr>
+        <tr><td>স্থিতি ঘর্ষণ</td><td>গতি শুরুর আগে (সর্বোচ্চ)</td></tr>
+        <tr><td>গতি/গতিশীল ঘর্ষণ</td><td>পিছলানোর সময়</td></tr>
+        <tr><td>আবর্ত ঘর্ষণ</td><td>গড়ানোর সময় (সবচেয়ে কম)</td></tr>
+      </table>
+      <div class="fbox green" style="margin-top:8px;">f = μN</div>
+      <div class="note">μ = ঘর্ষণ গুণাঙ্ক (মাত্রাহীন)<br>N = অভিলম্ব প্রতিক্রিয়া বল</div>
+      <div class="rem">স্থিতি ঘর্ষণ > গতি ঘর্ষণ > আবর্ত ঘর্ষণ</div>
+    </div>
+
+    <div class="card orange">
+      <div class="ct orange">🌍 মহাকর্ষ ও অভিকর্ষ</div>
+      <div class="fbox orange">F = Gm₁m₂/r²</div>
+      <div class="note" style="margin-top:6px;">G = 6.673×10⁻¹¹ N·m²/kg² (মহাকর্ষ ধ্রুবক)</div>
+      <div class="fbox orange">g = GM/R² = 9.8 m/s²</div>
+      <div class="fbox orange">ওজন W = mg</div>
+      <div class="hl" style="margin-top:6px;">
+        • মেরুতে g সবচেয়ে বেশি (পৃথিবী চ্যাপ্টা)<br>
+        • বিষুবীয় অঞ্চলে g সবচেয়ে কম<br>
+        • উচ্চতায় g কমে: g' = g(R/R+h)²<br>
+        • ভূগর্ভে g কমে: g' = g(1−d/R)
+      </div>
+    </div>
+
+    <div class="card teal full">
+      <div class="ct teal">⚡ মৌলিক বল ও বিভিন্ন বলের ধারণা</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;">
+        <div style="background:#0b5345;color:white;border-radius:8px;padding:10px;text-align:center;">
+          <div style="font-size:20px;">🌍</div>
+          <div style="font-size:12px;font-weight:700;margin-top:4px;">মহাকর্ষ বল</div>
+          <div style="font-size:11px;opacity:0.8;margin-top:3px;">সবচেয়ে দুর্বল, অসীম পাল্লা</div>
+        </div>
+        <div style="background:#1a5276;color:white;border-radius:8px;padding:10px;text-align:center;">
+          <div style="font-size:20px;">⚡</div>
+          <div style="font-size:12px;font-weight:700;margin-top:4px;">তড়িৎচুম্বকীয় বল</div>
+          <div style="font-size:11px;opacity:0.8;margin-top:3px;">আলো, রাসায়নিক বিক্রিয়া</div>
+        </div>
+        <div style="background:#922b21;color:white;border-radius:8px;padding:10px;text-align:center;">
+          <div style="font-size:20px;">⚛️</div>
+          <div style="font-size:12px;font-weight:700;margin-top:4px;">শক্তিশালী নিউক্লিয় বল</div>
+          <div style="font-size:11px;opacity:0.8;margin-top:3px;">সবচেয়ে শক্তিশালী, ক্ষুদ্র পাল্লা</div>
+        </div>
+        <div style="background:#4a235a;color:white;border-radius:8px;padding:10px;text-align:center;">
+          <div style="font-size:20px;">🔬</div>
+          <div style="font-size:12px;font-weight:700;margin-top:4px;">দুর্বল নিউক্লিয় বল</div>
+          <div style="font-size:11px;opacity:0.8;margin-top:3px;">তেজস্ক্রিয় ক্ষয়</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Force Simulation -->
+    <div class="card purple full">
+      <div class="ct purple">🎮 বল ও ত্বরণ সিমুলেশন (F = ma)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;">
+        <div class="sim-wrap">
+          <div class="sim-label">বল প্রয়োগের সিমুলেশন</div>
+          <canvas id="forceCanvas" width="300" height="120"></canvas>
+          <div class="sim-controls">
+            <button class="sim-btn" onclick="applyForce(10)">বল +10N</button>
+            <button class="sim-btn" onclick="applyForce(-10)">বল −10N</button>
+            <button class="sim-btn" onclick="resetForce()">↺ রিসেট</button>
+          </div>
+          <div class="sim-info" id="forceInfo">F=0N | a=0 m/s² | v=0 m/s</div>
+        </div>
+        <div>
+          <div class="fbox">F = ma → a = F/m</div>
+          <div class="fbox blue">ভর বেশি → ত্বরণ কম</div>
+          <div class="fbox green">বল বেশি → ত্বরণ বেশি</div>
+          <div class="note" style="margin-top:8px;">
+            <strong>উদাহরণ:</strong><br>
+            m = 5 kg, F = 20 N হলে<br>
+            a = F/m = 20/5 = 4 m/s²
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 4 ═══════════════ -->
+<div id="ch4" class="chapter-page">
+  <div class="ch-header">
+    <div class="ch-brand">REDWAN'S METHOD</div>
+    <div><div class="ch-sub">পদার্থবিজ্ঞান</div><div class="ch-name">অধ্যায় ০৪: কাজ, শক্তি ও ক্ষমতা</div></div>
+    <div class="ch-tag">SHORT NOTES</div>
+  </div>
+  <div class="wave-bar"></div>
+  <div class="ch-body">
+
+    <div class="card blue">
+      <div class="ct blue">💼 কাজ (Work)</div>
+      <p class="sm">বল প্রয়োগে বস্তুর সরণ হলে <strong>কাজ</strong> সম্পন্ন হয়।</p>
+      <div class="fbox" style="margin-top:8px;">W = F·s·cosθ</div>
+      <div class="note" style="margin-top:6px;">
+        θ = বল ও সরণের মধ্যবর্তী কোণ<br>
+        কাজের একক: জুল (J) = N·m<br>
+        কাজ একটি <strong>স্কেলার</strong> রাশি
+      </div>
+      <div class="hl" style="margin-top:8px;">
+        • θ = 0° → W = Fs (সর্বোচ্চ কাজ)<br>
+        • θ = 90° → W = 0 (কাজ শূন্য!)<br>
+        • θ = 180° → W = −Fs (ঋণাত্মক কাজ)
+      </div>
+      <div class="rem">লম্ব বলে কাজ হয় না! (যেমন: কেন্দ্রমুখী বল)</div>
+    </div>
+
+    <div class="card red">
+      <div class="ct red">⚡ শক্তি (Energy)</div>
+      <p class="sm">কাজ করার সামর্থ্যই <strong>শক্তি</strong>। একক: জুল (J)।</p>
+      <div class="fbox red" style="margin-top:8px;">গতিশক্তি KE = ½mv²</div>
+      <div class="fbox red">বিভবশক্তি PE = mgh</div>
+      <div class="fbox red">KE = p²/2m</div>
+      <div class="hl red" style="margin-top:8px;">
+        <strong>শক্তির সংরক্ষণ সূত্র:</strong><br>
+        মোট যান্ত্রিক শক্তি = KE + PE = ধ্রুবক
+      </div>
+      <div class="note" style="margin-top:6px;">
+        স্প্রিং-এর বিভবশক্তি: PE = ½kx²<br>
+        k = স্প্রিং ধ্রুবক, x = প্রসারণ
+      </div>
+    </div>
+
+    <div class="card green">
+      <div class="ct green">🔋 শক্তির রূপান্তর ও সংরক্ষণ</div>
+      <div class="flow" style="margin-bottom:8px;">
+        <div class="flow-item">রাসায়নিক</div>
+        <div class="flow-arr">→</div>
+        <div class="flow-item red">তাপ</div>
+        <div class="flow-arr">→</div>
+        <div class="flow-item green">যান্ত্রিক</div>
+        <div class="flow-arr">→</div>
+        <div class="flow-item orange">তড়িৎ</div>
+      </div>
+      <div class="hl green">শক্তি সৃষ্টি বা ধ্বংস হয় না, শুধু রূপান্তরিত হয়।</div>
+      <table class="tbl" style="margin-top:8px;">
+        <tr><th>যন্ত্র</th><th>রূপান্তর</th></tr>
+        <tr><td>মোমবাতি</td><td>রাসায়নিক → আলো + তাপ</td></tr>
+        <tr><td>বৈদ্যুতিক বাতি</td><td>তড়িৎ → আলো + তাপ</td></tr>
+        <tr><td>ডায়নামো</td><td>যান্ত্রিক → তড়িৎ</td></tr>
+        <tr><td>মোটর</td><td>তড়িৎ → যান্ত্রিক</td></tr>
+        <tr><td>সৌরকোষ</td><td>আলো → তড়িৎ</td></tr>
+      </table>
+    </div>
+
+    <div class="card orange">
+      <div class="ct orange">⚙️ ক্ষমতা (Power)</div>
+      <p class="sm">একক সময়ে সম্পাদিত কাজকে <strong>ক্ষমতা</strong> বলে।</p>
+      <div class="fbox orange" style="margin-top:8px;">P = W/t = F·v</div>
+      <div class="note" style="margin-top:6px;">
+        ক্ষমতার একক: ওয়াট (W) = J/s<br>
+        1 অশ্বক্ষমতা = 746 W<br>
+        1 কিলোওয়াট-ঘণ্টা (kWh) = 3.6×10⁶ J
+      </div>
+      <div class="fbox orange">দক্ষতা η = (কার্যকর ক্ষমতা / মোট ক্ষমতা) × 100%</div>
+      <div class="hl" style="margin-top:6px;">
+        <strong>উদাহরণ:</strong> 60W বাতি 2 ঘণ্টা জ্বললে<br>
+        শক্তি = 60W × 7200s = 432000 J = 0.12 kWh
+      </div>
+    </div>
+
+    <!-- Energy Sim -->
+    <div class="card purple full">
+      <div class="ct purple">🎮 শক্তি সংরক্ষণ সিমুলেশন (দোলক)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;">
+        <div class="sim-wrap">
+          <div class="sim-label">দোলকের KE ↔ PE রূপান্তর</div>
+          <canvas id="pendulumCanvas" width="300" height="160"></canvas>
+          <div class="sim-controls">
+            <button class="sim-btn" onclick="startPendulum()">▶ শুরু</button>
+            <button class="sim-btn" onclick="stopPendulum()">⏸ থামো</button>
+          </div>
+          <div class="sim-info" id="pendulumInfo">KE=0 | PE=সর্বোচ্চ</div>
+        </div>
+        <div>
+          <div class="fbox" style="margin-bottom:6px;">মোট E = KE + PE = ধ্রুবক</div>
+          <div class="hl">
+            • সর্বোচ্চ উচ্চতায়: KE=0, PE=সর্বোচ্চ<br>
+            • সাম্যাবস্থায়: KE=সর্বোচ্চ, PE=0<br>
+            • মাঝখানে: উভয়ই থাকে
+          </div>
+          <div class="fbox green" style="margin-top:8px;">দোলনকাল T = 2π√(L/g)</div>
+          <div class="note" style="margin-top:6px;">L = দোলকের দৈর্ঘ্য<br>g = অভিকর্ষজ ত্বরণ<br>T ভরের উপর নির্ভর করে না!</div>
+          <div class="rem" style="margin-top:8px;">কাজ-শক্তি উপপাদ্য:<br>W = ΔKE = ½mv² − ½mu²</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 7 ═══════════════ -->
+<div id="ch7" class="chapter-page">
+  <div class="ch-header">
+    <div class="ch-brand">REDWAN'S METHOD</div>
+    <div><div class="ch-sub">পদার্থবিজ্ঞান</div><div class="ch-name">অধ্যায় ০৭: তরঙ্গ ও শব্দ</div></div>
+    <div class="ch-tag">SHORT NOTES</div>
+  </div>
+  <div class="wave-bar"></div>
+  <div class="ch-body">
+
+    <div class="card blue">
+      <div class="ct blue">〰️ তরঙ্গের মূল ধারণা</div>
+      <p class="sm">মাধ্যমের কণাসমূহের পর্যায়বৃত্ত স্পন্দনের মাধ্যমে শক্তি সঞ্চারণকে <strong>তরঙ্গ</strong> বলে।</p>
+      <table class="tbl" style="margin-top:8px;">
+        <tr><th>অনুপ্রস্থ তরঙ্গ</th><th>অনুদৈর্ঘ্য তরঙ্গ</th></tr>
+        <tr><td>কণার কম্পন ⊥ তরঙ্গ</td><td>কণার কম্পন ∥ তরঙ্গ</td></tr>
+        <tr><td>শীর্ষ ও পাদ আছে</td><td>সংকোচন ও প্রসারণ</td></tr>
+        <tr><td>আলো, পানির ঢেউ</td><td>শব্দ তরঙ্গ</td></tr>
+        <tr><td>কঠিন ও তরলে</td><td>সব মাধ্যমে চলে</td></tr>
+      </table>
+    </div>
+
+    <div class="card red">
+      <div class="ct red">📐 তরঙ্গের বৈশিষ্ট্য ও সূত্র</div>
+      <ul class="ch-list">
+        <li><strong>তরঙ্গদৈর্ঘ্য (λ):</strong> দুই ক্রমাগত শীর্ষের দূরত্ব (m)</li>
+        <li><strong>কম্পাঙ্ক (f):</strong> প্রতি সেকেন্ডে কম্পন সংখ্যা (Hz)</li>
+        <li><strong>পর্যায়কাল (T):</strong> একটি পূর্ণ কম্পনের সময় (s)</li>
+        <li><strong>বিস্তার (A):</strong> সাম্যাবস্থা থেকে সর্বোচ্চ সরণ</li>
+        <li><strong>তরঙ্গবেগ (v):</strong> তরঙ্গ প্রতি সেকেন্ডে যত দূর যায়</li>
+      </ul>
+      <div class="fbox red" style="margin-top:8px;">v = fλ</div>
+      <div class="fbox red">T = 1/f</div>
+      <div class="fbox red">v = λ/T</div>
+    </div>
+
+    <!-- Wave Simulation -->
+    <div class="card green full">
+      <div class="ct green">🎮 তরঙ্গ সিমুলেশন</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;">
+        <div class="sim-wrap">
+          <div class="sim-label">অনুপ্রস্থ তরঙ্গ (Transverse Wave)</div>
+          <canvas id="waveCanvas" width="320" height="120"></canvas>
+          <div class="sim-controls">
+            <button class="sim-btn" onclick="changeFreq(1)">কম্পাঙ্ক ↑</button>
+            <button class="sim-btn" onclick="changeFreq(-1)">কম্পাঙ্ক ↓</button>
+            <button class="sim-btn" onclick="changeAmp(10)">বিস্তার ↑</button>
+            <button class="sim-btn" onclick="changeAmp(-10)">বিস্তার ↓</button>
+          </div>
+          <div class="sim-info" id="waveInfo">f=2Hz | λ=160px | A=30px</div>
+        </div>
+        <div>
+          <div class="fbox">v = fλ সম্পর্ক</div>
+          <div class="hl" style="margin-top:6px;">
+            • কম্পাঙ্ক বাড়লে → তরঙ্গদৈর্ঘ্য কমে<br>
+            • বিস্তার বাড়লে → শক্তি বাড়ে<br>
+            • তরঙ্গবেগ মাধ্যমের উপর নির্ভর করে
+          </div>
+          <div class="fbox green" style="margin-top:8px;">শক্তি ∝ A² (বিস্তারের বর্গ)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card orange">
+      <div class="ct orange">🔊 শব্দের বৈশিষ্ট্য</div>
+      <ul class="ch-list">
+        <li>শব্দ অনুদৈর্ঘ্য তরঙ্গ</li>
+        <li>শব্দের শূন্যে চলতে পারে না</li>
+        <li>কঠিন > তরল > বায়বীয় মাধ্যমে বেগ বেশি</li>
+      </ul>
+      <table class="tbl" style="margin-top:8px;">
+        <tr><th>মাধ্যম</th><th>শব্দের বেগ</th></tr>
+        <tr><td>বায়ু (20°C)</td><td>≈ 340 m/s</td></tr>
+        <tr><td>পানি</td><td>≈ 1480 m/s</td></tr>
+        <tr><td>লোহা</td><td>≈ 5100 m/s</td></tr>
+      </table>
+      <div class="fbox orange" style="margin-top:8px;">v = 332 + 0.6t m/s (বায়ুতে)</div>
+      <div class="note">t = তাপমাত্রা (°C) | তাপ বাড়লে শব্দের বেগ বাড়ে</div>
+    </div>
+
+    <div class="card purple">
+      <div class="ct purple">📡 প্রতিধ্বনি ও অনুরণন</div>
+      <div class="fbox purple">d = v·t / 2</div>
+      <div class="note" style="margin-top:6px;">d = প্রতিফলকের দূরত্ব | t = ফিরে আসতে সময়</div>
+      <div class="hl" style="margin-top:8px;">
+        প্রতিধ্বনি শুনতে ন্যূনতম দূরত্ব = <strong>17 m</strong><br>
+        (কারণ শব্দ 1/10 সেকেন্ড পরে আলাদাভাবে শোনা যায়)
+      </div>
+      <div class="hl red" style="margin-top:6px;">
+        <strong>অনুরণন:</strong> বস্তুর স্বাভাবিক কম্পাঙ্কে বাইরে থেকে কম্পন দিলে বিস্তার বাড়ে।
+      </div>
+      <div class="rem">সোনার (SONAR) প্রতিধ্বনি ব্যবহার করে সমুদ্রের গভীরতা মাপে!</div>
+    </div>
+
+    <div class="card teal full">
+      <div class="ct teal">🎵 শব্দের বৈশিষ্ট্য ও পরিসীমা</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+        <div>
+          <p class="sm"><strong>শব্দের তিন বৈশিষ্ট্য:</strong></p>
+          <ul class="ch-list" style="margin-top:6px;">
+            <li><strong>তীব্রতা (Loudness):</strong> বিস্তারের উপর নির্ভরশীল, ডেসিবেল (dB) এ মাপা হয়</li>
+            <li><strong>তীক্ষ্ণতা (Pitch):</strong> কম্পাঙ্কের উপর নির্ভরশীল</li>
+            <li><strong>গুণ/মান (Quality):</strong> তরঙ্গরূপের উপর নির্ভরশীল</li>
+          </ul>
+        </div>
+        <div>
+          <p class="sm"><strong>শব্দের পরিসীমা:</strong></p>
+          <table class="tbl" style="margin-top:6px;">
+            <tr><th>প্রকার</th><th>কম্পাঙ্ক</th></tr>
+            <tr><td>অবশ্রুতি</td><td>&lt; 20 Hz</td></tr>
+            <tr><td>শ্রুতিযোগ্য</td><td>20–20000 Hz</td></tr>
+            <tr><td>অতিশ্রুতি</td><td>&gt; 20000 Hz</td></tr>
+          </table>
+        </div>
+        <div>
+          <p class="sm"><strong>শব্দের তীব্রতা:</strong></p>
+          <table class="tbl" style="margin-top:6px;">
+            <tr><th>উৎস</th><th>dB</th></tr>
+            <tr><td>ফিসফিস</td><td>30</td></tr>
+            <tr><td>কথোপকথন</td><td>60</td></tr>
+            <tr><td>যানবাহন</td><td>80</td></tr>
+            <tr><td>বিমান</td><td>120</td></tr>
+          </table>
+          <div class="note" style="margin-top:4px;">বাদুড়, ডলফিন → অতিশ্রুতি ব্যবহারকারী</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 8 ═══════════════ -->
+<div id="ch8" class="chapter-page">
+  <div class="ch-header">
+    <div class="ch-brand">REDWAN'S METHOD</div>
+    <div><div class="ch-sub">পদার্থবিজ্ঞান</div><div class="ch-name">অধ্যায় ০৮: আলোর প্রতিফলন</div></div>
+    <div class="ch-tag">SHORT NOTES</div>
+  </div>
+  <div class="wave-bar"></div>
+  <div class="ch-body">
+
+    <div class="card blue">
+      <div class="ct blue">💡 আলোর প্রতিফলনের সূত্র</div>
+      <div class="hl blue">
+        <strong>১ম সূত্র:</strong> আপতিত রশ্মি, প্রতিফলিত রশ্মি ও অভিলম্ব একই সমতলে থাকে।<br><br>
+        <strong>২য় সূত্র:</strong> আপতন কোণ = প্রতিফলন কোণ (∠i = ∠r)
+      </div>
+      <div class="fbox" style="margin-top:8px;">∠i = ∠r</div>
+      <div class="note" style="margin-top:6px;">
+        আলোর বেগ: c = 3×10⁸ m/s (শূন্যে)<br>
+        আলো একটি অনুপ্রস্থ তরঙ্গ
+      </div>
+    </div>
+
+    <!-- Mirror Simulation -->
+    <div class="card red">
+      <div class="ct red">🪞 দর্পণের প্রকারভেদ</div>
+      <div class="two-list">
+        <div class="li-item" style="flex-direction:column;align-items:flex-start;gap:3px;">
+          <strong>সমতল দর্পণ</strong>
+          <span style="font-size:11px;">• সোজা, সমান আকার<br>• পার্শ্ব পরিবর্তিত<br>• দূরত্ব = বিম্বের দূরত্ব</span>
+        </div>
+        <div class="li-item" style="flex-direction:column;align-items:flex-start;gap:3px;">
+          <strong>অবতল দর্পণ</strong>
+          <span style="font-size:11px;">• ফোকাস বিন্দুতে আলো কেন্দ্রীভূত<br>• বাস্তব ও অবাস্তব বিম্ব<br>• দাড়ি কামানো আয়না</span>
+        </div>
+        <div class="li-item" style="flex-direction:column;align-items:flex-start;gap:3px;">
+          <strong>উত্তল দর্পণ</strong>
+          <span style="font-size:11px;">• আলো ছড়িয়ে পড়ে<br>• সর্বদা অবাস্তব বিম্ব<br>• গাড়ির পেছনের আয়না</span>
+        </div>
+        <div class="li-item" style="flex-direction:column;align-items:flex-start;gap:3px;">
+          <strong>গোলীয় দর্পণ</strong>
+          <span style="font-size:11px;">• f = R/2<br>• R = বক্রতার ব্যাসার্ধ<br>• C = বক্রতা কেন্দ্র</span>
+        </div>
+      </div>
+      <div class="fbox red" style="margin-top:8px;">f = R/2</div>
+    </div>
+
+    <div class="card green full">
+      <div class="ct green">🔢 দর্পণের সূত্র ও বিবর্ধন</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+        <div>
+          <div class="fbox green">1/f = 1/v + 1/u</div>
+          <div class="note" style="margin-top:6px;">
+            f = ফোকাস দূরত্ব<br>
+            v = বিম্বের দূরত্ব<br>
+            u = বস্তুর দূরত্ব
+          </div>
+          <div class="fbox green" style="margin-top:6px;">বিবর্ধন m = −v/u = h'/h</div>
+        </div>
+        <div>
+          <p class="sm"><strong>চিহ্নের নিয়ম (New Cartesian):</strong></p>
+          <ul class="ch-list" style="margin-top:6px;">
+            <li>মেরু থেকে পরিমাপ</li>
+            <li>আলোর দিকে (+)</li>
+            <li>আলোর বিপরীতে (−)</li>
+            <li>অবতল: f ঋণাত্মক</li>
+            <li>উত্তল: f ধনাত্মক</li>
+          </ul>
+        </div>
+        <div>
+          <p class="sm"><strong>বিম্বের বৈশিষ্ট্য:</strong></p>
+          <table class="tbl" style="margin-top:6px;">
+            <tr><th>m মান</th><th>বিম্ব</th></tr>
+            <tr><td>m &gt; 1</td><td>বিবর্ধিত</td></tr>
+            <tr><td>m = 1</td><td>সমান</td></tr>
+            <tr><td>m &lt; 1</td><td>ক্ষুদ্রিত</td></tr>
+            <tr><td>m (+)</td><td>সোজা (অবাস্তব)</td></tr>
+            <tr><td>m (−)</td><td>উল্টো (বাস্তব)</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Light Reflection Simulation -->
+    <div class="card orange full">
+      <div class="ct orange">🎮 আলোর প্রতিফলন সিমুলেশন</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;">
+        <div class="sim-wrap">
+          <div class="sim-label">সমতল দর্পণে প্রতিফলন — কোণ পরিবর্তন করুন</div>
+          <canvas id="reflectCanvas" width="320" height="160"></canvas>
+          <div class="sim-controls">
+            <button class="sim-btn" onclick="changeAngle(5)">কোণ +5°</button>
+            <button class="sim-btn" onclick="changeAngle(-5)">কোণ −5°</button>
+          </div>
+          <div class="sim-info" id="reflectInfo">আপতন কোণ = 45° | প্রতিফলন কোণ = 45°</div>
+        </div>
+        <div>
+          <div class="fbox">∠আপতন = ∠প্রতিফলন</div>
+          <div class="hl" style="margin-top:8px;">
+            <strong>অবতল দর্পণের ব্যবহার:</strong><br>
+            • টর্চলাইট, সার্চলাইট<br>
+            • দাড়ি কামানো দর্পণ<br>
+            • দন্তচিকিৎসার দর্পণ<br>
+            • সোলার কুকার
+          </div>
+          <div class="hl red" style="margin-top:6px;">
+            <strong>উত্তল দর্পণের ব্যবহার:</strong><br>
+            • গাড়ির রিয়ারভিউ মিরর<br>
+            • নিরাপত্তা দর্পণ (মোড়ে)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card purple full">
+      <div class="ct purple">🔭 অবতল দর্পণে বিম্বের অবস্থান</div>
+      <table class="tbl">
+        <tr><th>বস্তুর অবস্থান</th><th>বিম্বের অবস্থান</th><th>বিম্বের বৈশিষ্ট্য</th></tr>
+        <tr><td>অসীমে (∞)</td><td>ফোকাসে (F)</td><td>বাস্তব, বিন্দু</td></tr>
+        <tr><td>C-এর বাইরে</td><td>F ও C এর মধ্যে</td><td>বাস্তব, উল্টো, ছোট</td></tr>
+        <tr><td>C-তে</td><td>C-তে</td><td>বাস্তব, উল্টো, সমান</td></tr>
+        <tr><td>F ও C এর মধ্যে</td><td>C-এর বাইরে</td><td>বাস্তব, উল্টো, বড়</td></tr>
+        <tr><td>F-তে</td><td>অসীমে (∞)</td><td>বাস্তব, অত্যন্ত বড়</td></tr>
+        <tr><td>F-এর ভেতরে</td><td>দর্পণের পেছনে</td><td>অবাস্তব, সোজা, বড়</td></tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ CHAPTER 10 ═══════════════ -->
+<div id="ch10" class="chapter-page">
+  <div class="ch-header">
+    <div class="ch-brand">REDWAN'S METHOD</div>
+    <div><div class="ch-sub">পদার্থবিজ্ঞান</div><div class="ch-name">অধ্যায় ১০: স্থির বিদ্যুৎ</div></div>
+    <div class="ch-tag">SHORT NOTES</div>
+  </div>
+  <div class="wave-bar"></div>
+  <div class="ch-body">
+
+    <div class="card blue">
+      <div class="ct blue">⚡ তড়িৎ আধান ও কুলম্বের সূত্র</div>
+      <p class="sm">পদার্থের মৌলিক ধর্ম যা আকর্ষণ ও বিকর্ষণ ঘটায় তাকে <strong>তড়িৎ আধান</strong> বলে।</p>
+      <div class="hl blue" style="margin-top:8px;">
+        <strong>আধান ২ প্রকার:</strong><br>
+        • ধনাত্মক (+): প্রোটন (ইলেকট্রন কম)<br>
+        • ঋণাত্মক (−): ইলেকট্রন (ইলেকট্রন বেশি)
+      </div>
+      <div class="fbox" style="margin-top:8px;">F = kq₁q₂/r²</div>
+      <div class="note" style="margin-top:6px;">
+        k = 9×10⁹ N·m²/C² (কুলম্ব ধ্রুবক)<br>
+        আধানের একক: কুলম্ব (C)<br>
+        ইলেকট্রনের আধান: e = 1.6×10⁻¹⁹ C
+      </div>
+      <div class="rem">সজাতীয় আধান → বিকর্ষণ | বিজাতীয় → আকর্ষণ</div>
+    </div>
+
+    <div class="card red">
+      <div class="ct red">🌐 তড়িৎ ক্ষেত্র ও তড়িৎ বিভব</div>
+      <div class="fbox red">তড়িৎ ক্ষেত্র E = F/q = kQ/r²</div>
+      <div class="fbox red">তড়িৎ বিভব V = kQ/r</div>
+      <div class="fbox red">V = W/q (শূন্য থেকে আনতে কাজ)</div>
+      <div class="note" style="margin-top:8px;">
+        E = তড়িৎ ক্ষেত্রের প্রাবল্য (N/C বা V/m)<br>
+        V = তড়িৎ বিভব (ভোল্ট, V)<br>
+        তড়িৎ ক্ষেত্র ভেক্টর, তড়িৎ বিভব স্কেলার
+      </div>
+      <div class="hl red" style="margin-top:6px;">
+        <strong>সম্পর্ক:</strong> E = −dV/dr<br>
+        বিভব বেশি → ক্ষেত্র বেশি (একই স্থানে)
+      </div>
+    </div>
+
+    <!-- Charge Simulation -->
+    <div class="card green full">
+      <div class="ct green">🎮 তড়িৎ ক্ষেত্র সিমুলেশন</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;">
+        <div class="sim-wrap">
+          <div class="sim-label">আধানের তড়িৎ ক্ষেত্র রেখা — ক্লিক করুন</div>
+          <canvas id="chargeCanvas" width="320" height="180" style="cursor:pointer;"></canvas>
+          <div class="sim-controls">
+            <button class="sim-btn" onclick="addCharge(1)">+ ধনাত্মক আধান</button>
+            <button class="sim-btn" onclick="addCharge(-1)">− ঋণাত্মক আধান</button>
+            <button class="sim-btn" onclick="clearCharges()">↺ পরিষ্কার</button>
+          </div>
+        </div>
+        <div>
+          <div class="fbox">F = kq₁q₂/r²</div>
+          <div class="fbox blue">E = kQ/r²</div>
+          <div class="fbox green">V = kQ/r</div>
+          <div class="hl" style="margin-top:8px;">
+            ক্ষেত্র রেখার নিয়ম:<br>
+            • ধনাত্মক থেকে বের হয়<br>
+            • ঋণাত্মকে প্রবেশ করে<br>
+            • পরস্পর ছেদ করে না
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card orange">
+      <div class="ct orange">🔋 ধারক (Capacitor)</div>
+      <div class="fbox orange">C = Q/V</div>
+      <div class="note" style="margin-top:6px;">
+        C = ধারকত্ব (ফ্যারাড, F)<br>
+        Q = সঞ্চিত আধান (C)<br>
+        V = বিভব পার্থক্য (V)
+      </div>
+      <div class="fbox orange">সমান্তরাল পাত ধারক: C = ε₀A/d</div>
+      <div class="hl" style="margin-top:6px;">
+        A = পাতের ক্ষেত্রফল<br>
+        d = পাতদ্বয়ের দূরত্ব<br>
+        ε₀ = 8.85×10⁻¹² F/m (শূন্যস্থানের অনুমতিযোগ্যতা)
+      </div>
+      <div class="fbox orange" style="margin-top:6px;">ধারকে সঞ্চিত শক্তি: E = ½CV² = Q²/2C</div>
+    </div>
+
+    <div class="card purple">
+      <div class="ct purple">🔌 তড়িতায়ন পদ্ধতি</div>
+      <div class="flow" style="flex-direction:column;align-items:flex-start;">
+        <div><span class="badge blue">ঘর্ষণ</span><span style="font-size:12px;"> দুটি বস্তু ঘষলে ইলেকট্রন স্থানান্তর</span></div>
+        <div style="margin-top:6px;"><span class="badge green">স্পর্শ</span><span style="font-size:12px;"> আহিত বস্তু স্পর্শ করলে আধান ভাগ হয়</span></div>
+        <div style="margin-top:6px;"><span class="badge orange">আবেশ</span><span style="font-size:12px;"> স্পর্শ না করেই আহিত করা যায়</span></div>
+      </div>
+      <div class="rem" style="margin-top:10px;">
+        পরিবাহী: মুক্ত ইলেকট্রন আছে (ধাতু)<br>
+        অপরিবাহী: মুক্ত ইলেকট্রন নেই (কাচ, রাবার)<br>
+        অর্ধপরিবাহী: Si, Ge (বিশেষ অবস্থায় পরিবহন)
+      </div>
+    </div>
+
+    <div class="card teal full">
+      <div class="ct teal">📋 স্থির বিদ্যুৎ — সব সূত্র একনজরে</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div class="fbox" style="font-size:12px;">কুলম্ব: F=kq₁q₂/r²</div>
+        <div class="fbox blue" style="font-size:12px;">ক্ষেত্র: E=F/q=kQ/r²</div>
+        <div class="fbox green" style="font-size:12px;">বিভব: V=kQ/r</div>
+        <div class="fbox orange" style="font-size:12px;">ধারকত্ব: C=Q/V</div>
+        <div class="fbox red" style="font-size:12px;">শক্তি: E=½CV²</div>
+        <div class="fbox purple" style="font-size:12px;">E=−dV/dr</div>
+        <div class="fbox" style="font-size:12px;">k=9×10⁹ N·m²/C²</div>
+        <div class="fbox blue" style="font-size:12px;">e=1.6×10⁻¹⁹ C</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- end page-container -->
+
+<script>
+// ── NAV CONTROL ──
+function show(id) {
+  document.querySelectorAll('.chapter-page,.cover-page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  const el = document.getElementById(id);
+  if(el) el.classList.add('active');
+  event.target.classList.add('active');
+  // start sims on chapter load
+  if(id==='ch2') { setTimeout(startMotion,400); }
+  if(id==='ch4') { setTimeout(startPendulum,400); }
+  if(id==='ch7') { setTimeout(startWave,400); }
+  if(id==='ch8') { setTimeout(drawReflect,400); }
+  if(id==='ch10') { setTimeout(()=>{ drawChargeField(); },400); }
+}
+
+// ── MOTION SIMULATION ──
+let motionAnim, motionT=0, motionV=0, motionS=0, motionA=2, motionX=10;
+function startMotion() {
+  cancelAnimationFrame(motionAnim);
+  function loop() {
+    const c = document.getElementById('motionCanvas');
+    if(!c) return;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle='#0a0a1a'; ctx.fillRect(0,0,c.width,c.height);
+    // ground
+    ctx.fillStyle='#1a3a1a'; ctx.fillRect(0,c.height-20,c.width,20);
+    ctx.strokeStyle='#2a5a2a'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(0,c.height-20); ctx.lineTo(c.width,c.height-20); ctx.stroke();
+    // v-t graph
+    ctx.strokeStyle='#3498db'; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.moveTo(10,c.height-20-5); ctx.lineTo(motionX,c.height-20-Math.min(motionV*4,c.height-35)); ctx.stroke();
+    // ball
+    motionX = Math.min(motionX+motionV*0.5, c.width-20);
+    if(motionX>=c.width-20) { motionX=10; motionV=0; motionS=0; }
+    const grad = ctx.createRadialGradient(motionX,c.height-30,2,motionX,c.height-30,14);
+    grad.addColorStop(0,'#5dade2'); grad.addColorStop(1,'#1a5276');
+    ctx.beginPath(); ctx.arc(motionX,c.height-30,12,0,Math.PI*2);
+    ctx.fillStyle=grad; ctx.fill();
+    motionT+=0.05; motionV=motionA*motionT; motionS+=motionV*0.05;
+    document.getElementById('motionInfo').textContent=`v=${motionV.toFixed(1)}m/s | t=${motionT.toFixed(1)}s | s=${motionS.toFixed(1)}m`;
+    motionAnim = requestAnimationFrame(loop);
+  }
+  loop();
+}
+function resetMotion() { cancelAnimationFrame(motionAnim); motionT=0;motionV=0;motionS=0;motionX=10; document.getElementById('motionInfo').textContent='v=0 m/s | t=0s | s=0m'; const c=document.getElementById('motionCanvas'); if(c){const ctx=c.getContext('2d');ctx.fillStyle='#0a0a1a';ctx.fillRect(0,0,c.width,c.height);}}
+function toggleAccel() { motionA = motionA===2?0:2; motionT=0;motionV=0;motionS=0;motionX=10; }
+
+// ── FORCE SIMULATION ──
+let forceF=0, forceV=0, forceX=30, forceM=5, forceAnim;
+function drawForce() {
+  const c = document.getElementById('forceCanvas');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle='#0a0a1a'; ctx.fillRect(0,0,c.width,c.height);
+  ctx.fillStyle='#1a3a1a'; ctx.fillRect(0,c.height-15,c.width,15);
+  const a = forceF/forceM;
+  forceV += a*0.05;
+  forceX += forceV*0.5;
+  if(forceX>c.width-25) { forceX=c.width-25; forceV=-forceV*0.7; }
+  if(forceX<25) { forceX=25; forceV=-forceV*0.7; }
+  // box
+  ctx.fillStyle='#2980b9'; ctx.fillRect(forceX-20,c.height-55,40,40);
+  ctx.fillStyle='#3498db'; ctx.fillRect(forceX-18,c.height-53,36,36);
+  // force arrow
+  if(forceF!==0) {
+    ctx.strokeStyle=forceF>0?'#e74c3c':'#2ecc71'; ctx.lineWidth=3;
+    ctx.beginPath();
+    const dir=forceF>0?1:-1;
+    ctx.moveTo(forceX,c.height-35); ctx.lineTo(forceX+dir*50,c.height-35); ctx.stroke();
+    ctx.fillStyle=forceF>0?'#e74c3c':'#2ecc71';
+    ctx.beginPath(); ctx.moveTo(forceX+dir*50,c.height-35); ctx.lineTo(forceX+dir*38,c.height-42); ctx.lineTo(forceX+dir*38,c.height-28); ctx.fill();
+  }
+  document.getElementById('forceInfo').textContent=`F=${forceF}N | a=${a.toFixed(1)}m/s² | v=${forceV.toFixed(1)}m/s`;
+  forceAnim = requestAnimationFrame(drawForce);
+}
+function applyForce(f) { forceF+=f; if(!forceAnim) drawForce(); }
+function resetForce() { forceF=0;forceV=0;forceX=30; }
+
+// ── PENDULUM SIMULATION ──
+let pendAngle=Math.PI/4, pendOmega=0, pendLen=100, pendRunning=false, pendAnim;
+function startPendulum() {
+  pendRunning=true;
+  function loop() {
+    const c = document.getElementById('pendulumCanvas');
+    if(!c) return;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle='#0a0a1a'; ctx.fillRect(0,0,c.width,c.height);
+    const cx=c.width/2, cy=20;
+    pendOmega += -(9.8/pendLen)*Math.sin(pendAngle)*0.05;
+    pendOmega *= 0.999;
+    pendAngle += pendOmega*0.05;
+    const bx=cx+pendLen*Math.sin(pendAngle), by=cy+pendLen*Math.cos(pendAngle);
+    // string
+    ctx.strokeStyle='#7fb3d3'; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(bx,by); ctx.stroke();
+    // pivot
+    ctx.fillStyle='#aaa'; ctx.beginPath(); ctx.arc(cx,cy,5,0,Math.PI*2); ctx.fill();
+    // bob
+    const ke = 0.5*Math.pow(pendOmega,2)*pendLen*pendLen;
+    const pe = pendLen*(1-Math.cos(pendAngle))*9.8;
+    const maxE = pendLen*(1-Math.cos(Math.PI/4))*9.8;
+    const ratio = ke/(ke+pe+0.001);
+    const grad = ctx.createRadialGradient(bx,by,2,bx,by,16);
+    grad.addColorStop(0,`rgba(${Math.round(52+ratio*200)},${Math.round(152+ratio*50)},219,1)`);
+    grad.addColorStop(1,'#1a5276');
+    ctx.beginPath(); ctx.arc(bx,by,16,0,Math.PI*2);
+    ctx.fillStyle=grad; ctx.fill();
+    // energy bar
+    ctx.fillStyle='#1a3a1a'; ctx.fillRect(10,c.height-25,c.width-20,12);
+    ctx.fillStyle='#e74c3c'; ctx.fillRect(10,c.height-25,Math.round((pe/maxE)*(c.width-20)),12);
+    ctx.fillStyle='#3498db'; ctx.fillRect(10+Math.round((pe/maxE)*(c.width-20)),c.height-25,Math.round((ke/maxE)*(c.width-20)),12);
+    ctx.fillStyle='#aaa'; ctx.font='9px sans-serif'; ctx.fillText('PE',12,c.height-16); ctx.fillText('KE',c.width/2,c.height-16);
+    document.getElementById('pendulumInfo').textContent=`KE=${ke.toFixed(1)} | PE=${pe.toFixed(1)} | মোট=${(ke+pe).toFixed(1)}`;
+    if(pendRunning) pendAnim = requestAnimationFrame(loop);
+  }
+  loop();
+}
+function stopPendulum() { pendRunning=false; cancelAnimationFrame(pendAnim); }
+
+// ── WAVE SIMULATION ──
+let waveFreq=2, waveAmp=30, wavePhase=0, waveAnim;
+function startWave() {
+  function loop() {
+    const c = document.getElementById('waveCanvas');
+    if(!c) return;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle='#0a0a1a'; ctx.fillRect(0,0,c.width,c.height);
+    wavePhase += 0.05;
+    // axis
+    ctx.strokeStyle='#333'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(0,c.height/2); ctx.lineTo(c.width,c.height/2); ctx.stroke();
+    // wave
+    ctx.strokeStyle='#3498db'; ctx.lineWidth=2.5;
+    ctx.beginPath();
+    for(let x=0;x<c.width;x++) {
+      const y = c.height/2 + waveAmp*Math.sin(waveFreq*x*0.04-wavePhase);
+      x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+    // labels
+    ctx.fillStyle='#5dade2'; ctx.font='10px sans-serif';
+    ctx.fillText('A (বিস্তার)',4,c.height/2-waveAmp-4);
+    ctx.fillText('λ (তরঙ্গদৈর্ঘ্য)',10,c.height-8);
+    const lambda = Math.round(2*Math.PI/waveFreq/0.04);
+    document.getElementById('waveInfo').textContent=`f=${waveFreq}Hz | λ≈${lambda}px | A=${waveAmp}px`;
+    waveAnim = requestAnimationFrame(loop);
+  }
+  loop();
+}
+function changeFreq(d) { waveFreq=Math.max(1,Math.min(6,waveFreq+d)); }
+function changeAmp(d) { waveAmp=Math.max(10,Math.min(50,waveAmp+d)); }
+
+// ── REFLECTION SIMULATION ──
+let reflAngle=45;
+function drawReflect() {
+  const c = document.getElementById('reflectCanvas');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle='#0a0a1a'; ctx.fillRect(0,0,c.width,c.height);
+  const mx=c.width/2, my=c.height-20;
+  // mirror
+  ctx.strokeStyle='#7fb3d3'; ctx.lineWidth=3;
+  ctx.beginPath(); ctx.moveTo(20,my); ctx.lineTo(c.width-20,my); ctx.stroke();
+  // normal
+  ctx.strokeStyle='#555'; ctx.lineWidth=1; ctx.setLineDash([4,4]);
+  ctx.beginPath(); ctx.moveTo(mx,my); ctx.lineTo(mx,20); ctx.stroke();
+  ctx.setLineDash([]);
+  // incident ray
+  const rad=reflAngle*Math.PI/180;
+  const ix=mx-Math.sin(rad)*120, iy=my-Math.cos(rad)*120;
+  ctx.strokeStyle='#f1c40f'; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.moveTo(ix,iy); ctx.lineTo(mx,my); ctx.stroke();
+  // arrow on incident
+  ctx.fillStyle='#f1c40f';
+  const ang1=Math.atan2(my-iy,mx-ix);
+  ctx.beginPath(); ctx.moveTo(mx-15*Math.cos(ang1),my-15*Math.sin(ang1));
+  ctx.lineTo(mx-15*Math.cos(ang1)+8*Math.cos(ang1+2.5),my-15*Math.sin(ang1)+8*Math.sin(ang1+2.5));
+  ctx.lineTo(mx-15*Math.cos(ang1)+8*Math.cos(ang1-2.5),my-15*Math.sin(ang1)+8*Math.sin(ang1-2.5));
+  ctx.fill();
+  // reflected ray
+  const rx=mx+Math.sin(rad)*120, ry=my-Math.cos(rad)*120;
+  ctx.strokeStyle='#e74c3c'; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.moveTo(mx,my); ctx.lineTo(rx,ry); ctx.stroke();
+  ctx.fillStyle='#e74c3c';
+  const ang2=Math.atan2(ry-my,rx-mx);
+  ctx.beginPath(); ctx.moveTo(mx+30*Math.cos(ang2),my+30*Math.sin(ang2));
+  ctx.lineTo(mx+30*Math.cos(ang2)+8*Math.cos(ang2+2.5),my+30*Math.sin(ang2)+8*Math.sin(ang2+2.5));
+  ctx.lineTo(mx+30*Math.cos(ang2)+8*Math.cos(ang2-2.5),my+30*Math.sin(ang2)+8*Math.sin(ang2-2.5));
+  ctx.fill();
+  // angle labels
+  ctx.fillStyle='#f39c12'; ctx.font='12px Hind Siliguri';
+  ctx.fillText(`∠i=${reflAngle}°`,mx-80,my-60);
+  ctx.fillStyle='#e74c3c';
+  ctx.fillText(`∠r=${reflAngle}°`,mx+30,my-60);
+  // label
+  ctx.fillStyle='#aaa'; ctx.font='10px sans-serif';
+  ctx.fillText('আপতিত রশ্মি',ix-20,iy-5);
+  ctx.fillText('প্রতিফলিত রশ্মি',rx-20,ry-5);
+  ctx.fillText('অভিলম্ব',mx+4,30);
+  document.getElementById('reflectInfo').textContent=`আপতন কোণ = ${reflAngle}° | প্রতিফলন কোণ = ${reflAngle}°`;
+}
+function changeAngle(d) { reflAngle=Math.max(5,Math.min(80,reflAngle+d)); drawReflect(); }
+
+// ── CHARGE SIMULATION ──
+let charges=[];
+function addCharge(sign) {
+  const c = document.getElementById('chargeCanvas');
+  charges.push({x:80+Math.random()*160, y:40+Math.random()*100, sign});
+  drawChargeField();
+}
+function clearCharges() { charges=[]; drawChargeField(); }
+function drawChargeField() {
+  const c = document.getElementById('chargeCanvas');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle='#0a0a1a'; ctx.fillRect(0,0,c.width,c.height);
+  // field lines for each charge
+  charges.forEach(ch=>{
+    const numLines=8;
+    for(let l=0;l<numLines;l++) {
+      const startAngle = l*2*Math.PI/numLines;
+      let px=ch.x+20*Math.cos(startAngle), py=ch.y+20*Math.sin(startAngle);
+      ctx.strokeStyle=ch.sign>0?'rgba(231,76,60,0.6)':'rgba(52,152,219,0.6)';
+      ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(px,py);
+      for(let s=0;s<60;s++) {
+        let ex=0,ey=0;
+        charges.forEach(q=>{
+          const dx=px-q.x,dy=py-q.y;
+          const r2=dx*dx+dy*dy+100;
+          const f=q.sign*500/r2;
+          ex+=f*dx/Math.sqrt(r2+1);
+          ey+=f*dy/Math.sqrt(r2+1);
+        });
+        const mag=Math.sqrt(ex*ex+ey*ey);
+        if(mag<0.001) break;
+        px+=ch.sign*ex/mag*4;
+        py+=ch.sign*ey/mag*4;
+        if(px<0||px>c.width||py<0||py>c.height) break;
+        ctx.lineTo(px,py);
+      }
+      ctx.stroke();
+    }
+    // draw charge
+    const grad=ctx.createRadialGradient(ch.x,ch.y,2,ch.x,ch.y,14);
+    if(ch.sign>0) { grad.addColorStop(0,'#e74c3c'); grad.addColorStop(1,'#922b21'); }
+    else { grad.addColorStop(0,'#3498db'); grad.addColorStop(1,'#1a5276'); }
+    ctx.beginPath(); ctx.arc(ch.x,ch.y,12,0,Math.PI*2);
+    ctx.fillStyle=grad; ctx.fill();
+    ctx.fillStyle='white'; ctx.font='bold 14px sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(ch.sign>0?'+':'−',ch.x,ch.y);
+    ctx.textAlign='left'; ctx.textBaseline='alphabetic';
+  });
+  if(charges.length===0) {
+    ctx.fillStyle='#555'; ctx.font='13px Hind Siliguri'; ctx.textAlign='center';
+    ctx.fillText('বোতাম চেপে আধান যোগ করুন',c.width/2,c.height/2);
+    ctx.textAlign='left';
+  }
+}
+
+// init
+drawChargeField();
+</script>
+</body>
+</html>
