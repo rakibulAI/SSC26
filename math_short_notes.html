@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>গণিত শর্ট নোট | SSC-26</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hind Siliguri',sans-serif;background:#f0f2f5;color:#222;font-size:14px;line-height:1.6}
+.nav{background:#1d1d2e;color:#fff;position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:4px;padding:0 12px;overflow-x:auto;box-shadow:0 2px 10px rgba(0,0,0,.4);white-space:nowrap}
+.nav-title{font-size:15px;font-weight:700;color:#e63946;padding:12px 8px 12px 0;margin-right:4px}
+.nav a{color:#ccc;text-decoration:none;padding:14px 8px;font-size:12px;border-bottom:3px solid transparent;transition:.2s;cursor:pointer}
+.nav a:hover{color:#fff;border-bottom-color:#e63946}
+.chapter{max-width:1100px;margin:28px auto;padding:0 14px;display:none}
+.chapter.active{display:block}
+.ch-head{background:linear-gradient(135deg,#e63946,#900);color:#fff;border-radius:14px 14px 0 0;padding:20px 28px;display:flex;align-items:center;gap:14px;animation:sd .4s ease}
+.ch-head .ico{font-size:36px}
+.ch-head h1{font-size:22px;font-weight:700}
+.ch-head p{font-size:12px;opacity:.85;margin-top:3px}
+@keyframes sd{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px;background:#fff;padding:18px;border-radius:0 0 14px 14px;box-shadow:0 4px 20px rgba(0,0,0,.09)}
+.card{background:#f8f9fa;border-radius:10px;padding:16px;border-left:5px solid #0077b6;animation:fi .5s ease;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.11)}
+.card.red{border-left-color:#e63946}.card.green{border-left-color:#2dc653}.card.yellow{border-left-color:#f4a261}.card.purple{border-left-color:#7b2d8b}.card.wide{grid-column:1/-1}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.ct{font-size:14px;font-weight:700;color:#1d1d2e;margin-bottom:10px;display:flex;align-items:center;gap:7px;padding-bottom:7px;border-bottom:2px dashed #ddd}
+.formula{background:linear-gradient(135deg,#1d1d2e,#2d3a4a);color:#0ff;border-radius:7px;padding:8px 12px;font-family:monospace;font-size:13px;margin:6px 0;text-align:center;animation:glow 2s ease-in-out infinite alternate}
+@keyframes glow{from{box-shadow:0 0 4px rgba(0,255,255,.2)}to{box-shadow:0 0 12px rgba(0,255,255,.4)}}
+.hl{background:#fff3cd;border:1px solid #ffc107;border-radius:7px;padding:7px 11px;margin:6px 0;font-size:13px}
+.hl.blue{background:#e7f3ff;border-color:#0077b6}.hl.red{background:#ffe8e8;border-color:#e63946}.hl.green{background:#e8f8ee;border-color:#2dc653}
+ul.nl{padding-left:16px}ul.nl li{margin:4px 0;font-size:13px}ul.nl li::marker{color:#e63946;font-weight:700}
+table.nt{width:100%;border-collapse:collapse;font-size:12px;margin:7px 0}
+table.nt th{background:#1d1d2e;color:#fff;padding:5px 9px;text-align:left}
+table.nt td{padding:5px 9px;border-bottom:1px solid #e0e0e0}
+table.nt tr:nth-child(even) td{background:#f5f5f5}
+.rem{background:linear-gradient(135deg,#ff6b6b,#ee0979);color:#fff;border-radius:9px;padding:10px 14px;margin:8px 0;font-size:13px;font-weight:600}
+.step{display:flex;gap:8px;align-items:flex-start;margin:6px 0}
+.sn{background:#e63946;color:#fff;border-radius:50%;width:22px;height:22px;min-width:22px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.divl{text-align:center;color:#e63946;font-weight:700;font-size:12px;margin:10px 0 4px;letter-spacing:1px;text-transform:uppercase}
+.diagram{text-align:center;margin:8px 0;padding:8px;background:#fff;border-radius:7px;border:1px solid #e0e0e0}
+.home-wrap{max-width:880px;margin:36px auto;padding:18px}
+.home-title{text-align:center;font-size:26px;font-weight:700;color:#1d1d2e;margin-bottom:6px}
+.home-sub{text-align:center;color:#666;margin-bottom:26px;font-size:13px}
+.ch-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.ccard{background:#fff;border-radius:13px;padding:18px;text-align:center;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.09);transition:transform .2s,box-shadow .2s;border-top:4px solid #e63946;color:#1d1d2e}
+.ccard:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(0,0,0,.14)}
+.ccard .ico{font-size:34px;margin-bottom:7px}
+.ccard h3{font-size:12px;font-weight:600;line-height:1.4}
+.ccard span{font-size:11px;color:#888}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-title">📐 গণিত শর্ট নোট</span>
+  <a onclick="showHome()">🏠 হোম</a>
+  <a onclick="showCh('ch2')">অ-২: সেট</a>
+  <a onclick="showCh('ch3')">অ-৩: বীজগণিত</a>
+  <a onclick="showCh('ch7')">অ-৭: জ্যামিতি</a>
+  <a onclick="showCh('ch8')">অ-৮: বৃত্ত</a>
+  <a onclick="showCh('ch9')">অ-৯: ত্রিকোণমিতি</a>
+  <a onclick="showCh('ch11')">অ-১১: অনুপাত</a>
+  <a onclick="showCh('ch16')">অ-১৬: পরিমিতি</a>
+  <a onclick="showCh('ch17')">অ-১৭: পরিসংখ্যান</a>
+</nav>
+<div id="home" class="home-wrap">
+  <div class="home-title">📐 গণিত — রিভিশন শর্ট নোট</div>
+  <div class="home-sub">SSC-26 | একটি অধ্যায় বেছে নাও</div>
+  <div class="ch-cards">
+    <div class="ccard" onclick="showCh('ch2')"><div class="ico">🔵</div><h3>অধ্যায় ২<br>সেট ও ফাংশন</h3><span>Set & Function</span></div>
+    <div class="ccard" onclick="showCh('ch3')"><div class="ico">✖️</div><h3>অধ্যায় ৩<br>বীজগাণিতিক রাশি</h3><span>Algebraic Expression</span></div>
+    <div class="ccard" onclick="showCh('ch7')"><div class="ico">📐</div><h3>অধ্যায় ৭<br>ব্যবহারিক জ্যামিতি</h3><span>Practical Geometry</span></div>
+    <div class="ccard" onclick="showCh('ch8')"><div class="ico">⭕</div><h3>অধ্যায় ৮<br>বৃত্ত</h3><span>Circle</span></div>
+    <div class="ccard" onclick="showCh('ch9')"><div class="ico">📏</div><h3>অধ্যায় ৯<br>ত্রিকোণমিতিক অনুপাত</h3><span>Trigonometry</span></div>
+    <div class="ccard" onclick="showCh('ch11')"><div class="ico">⚖️</div><h3>অধ্যায় ১১<br>অনুপাত ও সমানুপাত</h3><span>Ratio & Proportion</span></div>
+    <div class="ccard" onclick="showCh('ch16')"><div class="ico">📦</div><h3>অধ্যায় ১৬<br>পরিমিতি</h3><span>Mensuration</span></div>
+    <div class="ccard" onclick="showCh('ch17')"><div class="ico">📊</div><h3>অধ্যায় ১৭<br>পরিসংখ্যান</h3><span>Statistics</span></div>
+  </div>
+</div>
+
+<!-- CH2 -->
+<div id="ch2" class="chapter">
+  <div class="ch-head"><span class="ico">🔵</span><div><h1>অধ্যায় ২: সেট ও ফাংশন</h1><p>Set & Function | উপসেট, অপারেশন, ভেনচিত্র, ফাংশন</p></div></div>
+  <div class="grid">
+    <div class="card red">
+      <div class="ct">🔷 সেটের সংজ্ঞা ও প্রকারভেদ</div>
+      <p style="font-size:13px">সুনির্দিষ্ট বস্তুর সংগ্রহকে <strong>সেট</strong> বলে। যেমন: A = {1, 2, 3}</p>
+      <table class="nt"><tr><th>প্রকার</th><th>বিবরণ</th><th>উদাহরণ</th></tr>
+      <tr><td>সসীম</td><td>সীমিত সদস্য</td><td>{1,2,3}</td></tr>
+      <tr><td>অসীম</td><td>অসীম সদস্য</td><td>ℕ</td></tr>
+      <tr><td>ফাঁকা</td><td>কোনো সদস্য নেই</td><td>∅</td></tr>
+      <tr><td>একক</td><td>একটিমাত্র সদস্য</td><td>{5}</td></tr>
+      <tr><td>সার্বিক</td><td>সকল সদস্যের সেট</td><td>U</td></tr></table>
+      <div class="rem">⚡ n(A) = সেট A-এর মোট সদস্য সংখ্যা</div>
+    </div>
+    <div class="card">
+      <div class="ct">🔷 উপসেট ও গণনা</div>
+      <ul class="nl">
+        <li>A ⊆ B → A, B-এর উপসেট</li>
+        <li>A ⊂ B → প্রকৃত উপসেট (A ≠ B)</li>
+        <li>n সদস্যের সেটে উপসেট = <strong>2ⁿ</strong></li>
+        <li>প্রকৃত উপসেট = <strong>2ⁿ − 1</strong></li>
+      </ul>
+      <div class="formula">n(A) = 3 → উপসেট = 2³ = 8টি</div>
+      <div class="hl blue">💡 ফাঁকা সেট (∅) সকল সেটের উপসেট</div>
+    </div>
+    <div class="card green">
+      <div class="ct">🔷 সেট অপারেশন</div>
+      <div class="divl">সংযোগ (Union)</div>
+      <div class="formula">A ∪ B = A ও B উভয়ের সকল সদস্য</div>
+      <div class="divl">ছেদ (Intersection)</div>
+      <div class="formula">A ∩ B = উভয়ের সাধারণ সদস্য</div>
+      <div class="divl">পার্থক্য</div>
+      <div class="formula">A − B = A-তে আছে B-তে নেই</div>
+      <div class="divl">পূরক</div>
+      <div class="formula">A' = U − A</div>
+    </div>
+    <div class="card yellow">
+      <div class="ct">🔷 ভেনচিত্র ও মূল সূত্র</div>
+      <div class="diagram">
+        <svg width="240" height="140" viewBox="0 0 240 140">
+          <rect width="240" height="140" fill="#f8f9fa" rx="8"/>
+          <text x="6" y="16" font-size="10" fill="#555">U (সার্বিক সেট)</text>
+          <circle cx="85" cy="78" r="48" fill="#ff6b6b" fill-opacity=".35" stroke="#e63946" stroke-width="2"/>
+          <circle cx="155" cy="78" r="48" fill="#0077b6" fill-opacity=".35" stroke="#0077b6" stroke-width="2"/>
+          <text x="52" y="76" font-size="14" fill="#a00" font-weight="bold">A</text>
+          <text x="167" y="76" font-size="14" fill="#004f7c" font-weight="bold">B</text>
+          <text x="108" y="76" font-size="10" fill="#333">A∩B</text>
+        </svg>
+      </div>
+      <div class="formula">n(A∪B) = n(A) + n(B) − n(A∩B)</div>
+      <div class="divl">ডি-মর্গানের সূত্র 🔥</div>
+      <div class="formula">(A∪B)' = A' ∩ B'</div>
+      <div class="formula">(A∩B)' = A' ∪ B'</div>
+      <div class="hl red">🔥 পরীক্ষায় প্রতি বছর আসে!</div>
+    </div>
+    <div class="card purple">
+      <div class="ct">🔷 ফাংশন (Function)</div>
+      <p style="font-size:13px">A থেকে B-তে এমন সম্পর্ক যেখানে A-এর প্রতিটি উপাদানের B-তে একটিমাত্র মান।</p>
+      <div class="formula">f: A → B</div>
+      <table class="nt">
+        <tr><th>ধরন</th><th>বৈশিষ্ট্য</th></tr>
+        <tr><td>এক-এক (One-One)</td><td>ভিন্ন ইনপুট → ভিন্ন আউটপুট</td></tr>
+        <tr><td>উপরি (Onto)</td><td>সকল codomain ব্যবহৃত</td></tr>
+        <tr><td>Bijective</td><td>এক-এক এবং উপরি উভয়ই</td></tr>
+        <tr><td>অভেদ (Identity)</td><td>f(x) = x</td></tr>
+      </table>
+      <div class="hl">Domain = ইনপুট | Range = আউটপুট | Codomain = B সেট</div>
+    </div>
+    <div class="card wide">
+      <div class="ct">🔷 গুরুত্বপূর্ণ সেট সূত্র সংকলন</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div><div class="formula">A ∩ ∅ = ∅</div><div class="formula">A ∪ ∅ = A</div><div class="formula">A ∩ A' = ∅</div><div class="formula">A ∪ A' = U</div></div>
+        <div><div class="formula">(A')' = A</div><div class="formula">A ∩ U = A</div><div class="formula">A ∪ U = U</div><div class="formula">n(A∪B∪C) = n(A)+n(B)+n(C)−n(A∩B)−n(B∩C)−n(A∩C)+n(A∩B∩C)</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CH3 -->
+<div id="ch3" class="chapter">
+  <div class="ch-head"><span class="ico">✖️</span><div><h1>অধ্যায় ৩: বীজগাণিতিক রাশি</h1><p>সূত্র, উৎপাদক বিশ্লেষণ, ভাগশেষ উপপাদ্য, গ.সা.গু ও ল.সা.গু</p></div></div>
+  <div class="grid">
+    <div class="card red">
+      <div class="ct">🔷 মূল সূত্রসমূহ (অবশ্যই মুখস্থ!)</div>
+      <div class="formula">(a+b)² = a²+2ab+b²</div>
+      <div class="formula">(a−b)² = a²−2ab+b²</div>
+      <div class="formula">(a+b)³ = a³+3a²b+3ab²+b³</div>
+      <div class="formula">(a−b)³ = a³−3a²b+3ab²−b³</div>
+      <div class="formula">a²−b² = (a+b)(a−b)</div>
+      <div class="formula">a³+b³ = (a+b)(a²−ab+b²)</div>
+      <div class="formula">a³−b³ = (a−b)(a²+ab+b²)</div>
+    </div>
+    <div class="card">
+      <div class="ct">🔷 পরিচয় সূত্র</div>
+      <div class="formula">a²+b² = (a+b)²−2ab = (a−b)²+2ab</div>
+      <div class="formula">(a+b+c)² = a²+b²+c²+2(ab+bc+ca)</div>
+      <div class="formula">a³+b³+c³−3abc = (a+b+c)(a²+b²+c²−ab−bc−ca)</div>
+      <div class="hl red">🔥 a+b+c=0 হলে → a³+b³+c³ = 3abc</div>
+      <div class="formula">(a+b)²+(a−b)² = 2(a²+b²)</div>
+      <div class="formula">(a+b)²−(a−b)² = 4ab</div>
+      <div class="rem">⚡ শেষ দুটি সূত্র পরীক্ষায় বেশি আসে!</div>
+    </div>
+    <div class="card green">
+      <div class="ct">🔷 উৎপাদকে বিশ্লেষণ পদ্ধতি</div>
+      <div class="step"><div class="sn">১</div><div><strong>সাধারণ উৎপাদক:</strong> 2x²+4x = 2x(x+2)</div></div>
+      <div class="step"><div class="sn">২</div><div><strong>সূত্র প্রয়োগ:</strong> x²−9 = (x+3)(x−3)</div></div>
+      <div class="step"><div class="sn">৩</div><div><strong>মধ্যপদ বিশ্লেষণ:</strong> x²+5x+6 = (x+2)(x+3)</div></div>
+      <div class="step"><div class="sn">৪</div><div><strong>গুচ্ছীভবন:</strong> ax+ay+bx+by = (a+b)(x+y)</div></div>
+      <div class="hl blue">💡 মধ্যপদ: গুণফল = ধ্রুব পদ, যোগফল = মধ্যপদের সহগ</div>
+    </div>
+    <div class="card yellow">
+      <div class="ct">🔷 ভাগশেষ ও গুণনীয়ক উপপাদ্য</div>
+      <div class="formula">ভাগশেষ উপপাদ্য: f(x)÷(x−a) এর ভাগশেষ = f(a)</div>
+      <div class="formula">গুণনীয়ক উপপাদ্য: f(a)=0 হলে (x−a) উৎপাদক</div>
+      <div class="hl">📌 f(x)=x³−6x²+11x−6 → f(1)=0 → (x−1) উৎপাদক</div>
+      <div class="rem">⚡ প্রথমে ±1, ±2 মান পরীক্ষা করো!</div>
+    </div>
+    <div class="card wide">
+      <div class="ct">🔷 গ.সা.গু ও ল.সা.গু (বহুপদী রাশির)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div><div class="divl">গ.সা.গু (HCF)</div>
+          <div class="step"><div class="sn">১</div><div>উৎপাদকে বিশ্লেষণ করো</div></div>
+          <div class="step"><div class="sn">২</div><div>সাধারণ উৎপাদকের সবচেয়ে ছোট ঘাত নাও</div></div>
+          <div class="step"><div class="sn">৩</div><div>গুণ করলে গ.সা.গু পাবে</div></div>
+        </div>
+        <div><div class="divl">ল.সা.গু (LCM)</div>
+          <div class="step"><div class="sn">১</div><div>উৎপাদকে বিশ্লেষণ করো</div></div>
+          <div class="step"><div class="sn">২</div><div>সকল উৎপাদকের সবচেয়ে বড় ঘাত নাও</div></div>
+          <div class="step"><div class="sn">৩</div><div>গুণ করলে ল.সা.গু পাবে</div></div>
+        </div>
+      </div>
+      <div class="formula">গ.সা.গু × ল.সা.গু = দুটি রাশির গুণফল</div>
+    </div>
+  </div>
+</div>
+
+<!-- CH7 -->
+<div id="ch7" class="chapter">
+  <div class="ch-head"><span class="ico">📐</span><div><h1>অধ্যায় ৭: ব্যবহারিক জ্যামিতি</h1><p>ত্রিভুজ ও চতুর্ভুজ অঙ্কন, বিশেষ কোণ, সমান্তরাল রেখা</p></div></div>
+  <div class="grid">
+    <div class="card red">
+      <div class="ct">🔷 ত্রিভুজ অঙ্কন পদ্ধতি</div>
+      <div class="divl">তিন বাহু দেওয়া (SSS)</div>
+      <div class="step"><div class="sn">১</div><div>একটি বাহু (a) আঁকো</div></div>
+      <div class="step"><div class="sn">২</div><div>দুই প্রান্ত থেকে b ও c দিয়ে চাপ কাটো</div></div>
+      <div class="step"><div class="sn">৩</div><div>চাপের ছেদবিন্দু = তৃতীয় শীর্ষবিন্দু</div></div>
+      <div class="divl">দুই বাহু ও অন্তর্ভুক্ত কোণ (SAS)</div>
+      <div class="step"><div class="sn">১</div><div>একটি বাহু আঁকো</div></div>
+      <div class="step"><div class="sn">২</div><div>একপ্রান্তে নির্দিষ্ট কোণ স্থাপন করো</div></div>
+      <div class="step"><div class="sn">৩</div><div>সেই কোণের বাহু বরাবর দ্বিতীয় বাহু কাটো</div></div>
+      <div class="rem">⚡ কম্পাস ছাড়া পরীক্ষায় নম্বর পাবে না!</div>
+    </div>
+    <div class="card">
+      <div class="ct">🔷 বিশেষ রেখা অঙ্কন</div>
+      <table class="nt">
+        <tr><th>রেখার প্রকার</th><th>পদ্ধতি</th></tr>
+        <tr><td>লম্বসমদ্বিখণ্ডক</td><td>দুই প্রান্ত থেকে সমান চাপ কাটো</td></tr>
+        <tr><td>কোণ সমদ্বিখণ্ডক</td><td>শীর্ষ থেকে চাপ কেটে সমান দূরত্বে চাপ কাটো</td></tr>
+        <tr><td>সমান্তরাল রেখা</td><td>Corresponding angles পদ্ধতি</td></tr>
+        <tr><td>লম্ব রেখা</td><td>বিন্দু থেকে ৯০° কোণে রেখা</td></tr>
+      </table>
+    </div>
+    <div class="card green">
+      <div class="ct">🔷 বিশেষ কোণ তৈরি</div>
+      <table class="nt">
+        <tr><th>কোণ</th><th>পদ্ধতি</th></tr>
+        <tr><td>60°</td><td>সমবাহু ত্রিভুজের কোণ</td></tr>
+        <tr><td>90°</td><td>60°+30° অথবা লম্বসমদ্বিখণ্ডক</td></tr>
+        <tr><td>45°</td><td>90° এর সমদ্বিখণ্ডক</td></tr>
+        <tr><td>30°</td><td>60° এর সমদ্বিখণ্ডক</td></tr>
+        <tr><td>120°</td><td>60° এর সম্পূরক</td></tr>
+        <tr><td>75°</td><td>45°+30°</td></tr>
+        <tr><td>150°</td><td>30° এর সম্পূরক</td></tr>
+      </table>
+    </div>
+    <div class="card yellow">
+      <div class="ct">🔷 চতুর্ভুজ অঙ্কন</div>
+      <ul class="nl">
+        <li><strong>বর্গক্ষেত্র:</strong> একটি বাহু + ৯০° কোণ</li>
+        <li><strong>আয়তক্ষেত্র:</strong> দুটি বাহু + ৯০° কোণ</li>
+        <li><strong>সামান্তরিক:</strong> দুটি বাহু + একটি কোণ</li>
+        <li><strong>ট্রাপিজিয়াম:</strong> একজোড়া সমান্তরাল বাহু</li>
+        <li><strong>রম্বস:</strong> চারটি সমান বাহু</li>
+      </ul>
+      <div class="hl blue">💡 ৪টি বাহু + ১টি কোণ অথবা ৩টি বাহু + ২টি কোণ দিলে চতুর্ভুজ আঁকা যায়</div>
+    </div>
+  </div>
+</div>
+
+<!-- CH8 -->
+<div id="ch8" class="chapter">
+  <div class="ch-head"><span class="ico">⭕</span><div><h1>অধ্যায় ৮: বৃত্ত</h1><p>জ্যা, বৃত্তচাপ, কেন্দ্রস্থ ও পরিধিস্থ কোণ, স্পর্শক, চক্রীয় চতুর্ভুজ</p></div></div>
+  <div class="grid">
+    <div class="card red">
+      <div class="ct">🔷 বৃত্তের মূল অংশ</div>
+      <div class="diagram">
+        <svg width="210" height="170" viewBox="0 0 210 170">
+          <circle cx="105" cy="85" r="68" fill="none" stroke="#e63946" stroke-width="2"/>
+          <circle cx="105" cy="85" r="3" fill="#333"/>
+          <line x1="105" y1="85" x2="173" y2="85" stroke="#0077b6" stroke-width="2"/>
+          <line x1="37" y1="85" x2="173" y2="85" stroke="#2dc653" stroke-width="1.5" stroke-dasharray="4"/>
+          <line x1="105" y1="85" x2="142" y2="26" stroke="#f4a261" stroke-width="2"/>
+          <text x="130" y="92" font-size="10" fill="#0077b6">r (ব্যাসার্ধ)</text>
+          <text x="64" y="106" font-size="10" fill="#2dc653">d = 2r (ব্যাস)</text>
+          <text x="94" y="80" font-size="10" fill="#333">O</text>
+        </svg>
+      </div>
+      <table class="nt">
+        <tr><th>অংশ</th><th>সংজ্ঞা</th></tr>
+        <tr><td>কেন্দ্র (O)</td><td>বৃত্তের মধ্যবিন্দু</td></tr>
+        <tr><td>ব্যাসার্ধ (r)</td><td>কেন্দ্র থেকে পরিধির দূরত্ব</td></tr>
+        <tr><td>ব্যাস (d)</td><td>d = 2r</td></tr>
+        <tr><td>জ্যা</td><td>পরিধির দুটি বিন্দু সংযোগকারী রেখা</td></tr>
+        <tr><td>বৃত্তচাপ</td><td>পরিধির যেকোনো অংশ</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct">🔷 গুরুত্বপূর্ণ উপপাদ্য 🔥</div>
+      <div class="hl red">🔥 পরীক্ষায় সবচেয়ে বেশি আসে!</div>
+      <ul class="nl">
+        <li><strong>উপ-১:</strong> সমান জ্যা কেন্দ্র থেকে সমদূরবর্তী</li>
+        <li><strong>উপ-২:</strong> কেন্দ্র থেকে জ্যার লম্ব, জ্যাকে সমদ্বিখণ্ডিত করে</li>
+        <li><strong>উপ-৩:</strong> কেন্দ্রস্থ কোণ = পরিধিস্থ কোণের <strong>দ্বিগুণ</strong></li>
+        <li><strong>উপ-৪:</strong> একই বৃত্তচাপের পরিধিস্থ কোণগুলো <strong>সমান</strong></li>
+        <li><strong>উপ-৫:</strong> অর্ধবৃত্তের পরিধিস্থ কোণ = <strong>৯০°</strong></li>
+      </ul>
+    </div>
+    <div class="card green">
+      <div class="ct">🔷 স্পর্শক (Tangent)</div>
+      <ul class="nl">
+        <li>বৃত্তকে একটিমাত্র বিন্দুতে স্পর্শ করা রেখা = স্পর্শক</li>
+        <li>স্পর্শবিন্দুতে ব্যাসার্ধ ⊥ স্পর্শক</li>
+        <li>বাইরের বিন্দু থেকে দুটি স্পর্শক → <strong>সমান দৈর্ঘ্য</strong></li>
+        <li>স্পর্শক-জ্যা কোণ = বিপরীত বৃত্তচাপের পরিধিস্থ কোণ</li>
+      </ul>
+      <div class="formula">PA = PB (P বাইরের বিন্দু)</div>
+      <div class="rem">⚡ ∠OAP = ∠OBP = 90°</div>
+    </div>
+    <div class="card yellow">
+      <div class="ct">🔷 চক্রীয় চতুর্ভুজ</div>
+      <div class="hl">📌 চারটি শীর্ষবিন্দুই বৃত্তের উপর থাকে</div>
+      <div class="formula">বিপরীত কোণের সমষ্টি = ১৮০°</div>
+      <div class="formula">∠A + ∠C = 180° | ∠B + ∠D = 180°</div>
+      <ul class="nl">
+        <li>চক্রীয় সামান্তরিক = আয়তক্ষেত্র</li>
+        <li>চক্রীয় ট্রাপিজিয়াম = সমদ্বিবাহু ট্রাপিজিয়াম</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CH9 -->
+<div id="ch9" class="chapter">
+  <div class="ch-head"><span class="ico">📏</span><div><h1>অধ্যায় ৯: ত্রিকোণমিতিক অনুপাত</h1><p>sin, cos, tan — পরিচয় সূত্র, বিশেষ কোণ, উচ্চতা ও দূরত্ব</p></div></div>
+  <div class="grid">
+    <div class="card red">
+      <div class="ct">🔷 মূল অনুপাত</div>
+      <div class="diagram">
+        <svg width="190" height="145" viewBox="0 0 190 145">
+          <polygon points="20,128 170,128 20,18" fill="none" stroke="#333" stroke-width="2"/>
+          <rect x="20" y="108" width="20" height="20" fill="none" stroke="#333" stroke-width="1.5"/>
+          <text x="78" y="142" font-size="11" fill="#0077b6">ভূমি (B)</text>
+          <text x="1" y="73" font-size="11" fill="#e63946">লম্ব (P)</text>
+          <text x="78" y="65" font-size="11" fill="#2dc653">অতিভুজ (H)</text>
+          <text x="148" y="125" font-size="12" fill="#333">θ</text>
+        </svg>
+      </div>
+      <div class="formula">sin θ = P/H | cos θ = B/H | tan θ = P/B</div>
+      <div class="formula">cosec = H/P | sec = H/B | cot = B/P</div>
+      <div class="rem">⚡ SOH–CAH–TOA মনে রাখো!</div>
+    </div>
+    <div class="card">
+      <div class="ct">🔷 বিশেষ কোণের মান</div>
+      <table class="nt">
+        <tr><th>কোণ</th><th>sin</th><th>cos</th><th>tan</th></tr>
+        <tr><td>0°</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>30°</td><td>1/2</td><td>√3/2</td><td>1/√3</td></tr>
+        <tr><td>45°</td><td>1/√2</td><td>1/√2</td><td>1</td></tr>
+        <tr><td>60°</td><td>√3/2</td><td>1/2</td><td>√3</td></tr>
+        <tr><td>90°</td><td>1</td><td>0</td><td>∞</td></tr>
+      </table>
+      <div class="hl blue">💡 sin: 0→½→1/√2→√3/2→1 (ক্রমশ বাড়ে)<br>cos: উল্টো ক্রমে কমে</div>
+    </div>
+    <div class="card green">
+      <div class="ct">🔷 পরিচয় সম্পর্ক (Identity)</div>
+      <div class="formula">sin²θ + cos²θ = 1</div>
+      <div class="formula">1 + tan²θ = sec²θ</div>
+      <div class="formula">1 + cot²θ = cosec²θ</div>
+      <ul class="nl">
+        <li>sin²θ = 1 − cos²θ</li>
+        <li>tan θ = sin θ / cos θ</li>
+        <li>sin θ · cosec θ = 1</li>
+        <li>cos θ · sec θ = 1</li>
+        <li>tan θ · cot θ = 1</li>
+      </ul>
+    </div>
+    <div class="card yellow">
+      <div class="ct">🔷 উন্নতি ও অবনতি কোণ</div>
+      <div class="hl red">🔥 উচ্চতা ও দূরত্বের অংক পরীক্ষায় আসে!</div>
+      <div class="diagram">
+        <svg width="220" height="130" viewBox="0 0 220 130">
+          <line x1="10" y1="115" x2="210" y2="115" stroke="#333" stroke-width="2"/>
+          <line x1="40" y1="115" x2="40" y2="20" stroke="#e63946" stroke-width="2"/>
+          <line x1="185" y1="115" x2="40" y2="20" stroke="#2dc653" stroke-width="2"/>
+          <text x="46" y="68" font-size="10" fill="#e63946">উচ্চতা h</text>
+          <text x="95" y="128" font-size="10" fill="#0077b6">দূরত্ব d</text>
+          <text x="155" y="110" font-size="12" fill="#555">α</text>
+        </svg>
+      </div>
+      <div class="formula">tan α = উচ্চতা (h) / দূরত্ব (d)</div>
+      <ul class="nl">
+        <li><strong>উন্নতি কোণ:</strong> অনুভূমি থেকে উপরে দেখার কোণ</li>
+        <li><strong>অবনতি কোণ:</strong> অনুভূমি থেকে নিচে দেখার কোণ</li>
+        <li>উন্নতি কোণ = অবনতি কোণ (alternate angles)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CH11 -->
+<div id="ch11" class="chapter">
+  <div class="ch-head"><span class="ico">⚖️</span><div><h1>অধ্যায় ১১: অনুপাত ও সমানুপাত</h1><p>Ratio & Proportion | Componendo-Dividendo</p></div></div>
+  <div class="grid">
+    <div class="card red">
+      <div class="ct">🔷 অনুপাত (Ratio)</div>
+      <div class="formula">a : b = a/b (b ≠ 0)</div>
+      <table class="nt">
+        <tr><th>ধরন</th><th>বিবরণ</th></tr>
+        <tr><td>সরল অনুপাত</td><td>a:b</td></tr>
+        <tr><td>ব্যস্ত অনুপাত</td><td>b:a</td></tr>
+        <tr><td>যৌগিক অনুপাত</td><td>a:b ও c:d → ac:bd</td></tr>
+        <tr><td>বর্গ অনুপাত</td><td>a²:b²</td></tr>
+        <tr><td>বর্গমূল অনুপাত</td><td>√a:√b</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct">🔷 সমানুপাত (Proportion)</div>
+      <div class="formula">a:b = c:d → ad = bc</div>
+      <ul class="nl">
+        <li><strong>মধ্যসমানুপাতী:</strong> b = √(ac)</li>
+        <li><strong>তৃতীয়সমানুপাতী:</strong> c = b²/a</li>
+        <li><strong>চতুর্থসমানুপাতী:</strong> d = bc/a</li>
+      </ul>
+      <div class="formula">b² = ac (মধ্যসমানুপাতীর শর্ত)</div>
+    </div>
+    <div class="card green">
+      <div class="ct">🔷 সমানুপাতের ধর্মসমূহ</div>
+      <p style="font-size:12px;margin-bottom:6px">যদি a/b = c/d হয়, তবে:</p>
+      <div class="formula">বিনিমেয়: b/a = d/c</div>
+      <div class="formula">পর্যায়ক্রমী: a/c = b/d</div>
+      <div class="formula">যোজনী: (a+b)/b = (c+d)/d</div>
+      <div class="formula">বিয়োজনী: (a−b)/b = (c−d)/d</div>
+      <div class="formula">C&D: (a+b)/(a−b) = (c+d)/(c−d)</div>
+      <div class="rem">⚡ Componendo & Dividendo পরীক্ষায় প্রায়ই আসে!</div>
+    </div>
+    <div class="card yellow">
+      <div class="ct">🔷 সমমান অনুপাত</div>
+      <div class="formula">a/b = c/d = e/f = (a+c+e)/(b+d+f)</div>
+      <div class="formula">= (pa+qc+re)/(pb+qd+rf)</div>
+      <div class="hl">📌 x/2 = y/3 = z/5 হলে → x:y:z = 2:3:5</div>
+    </div>
+  </div>
+</div>
+
+<!-- CH16 -->
+<div id="ch16" class="chapter">
+  <div class="ch-head"><span class="ico">📦</span><div><h1>অধ্যায় ১৬: পরিমিতি</h1><p>Mensuration | ক্ষেত্রফল, আয়তন, পৃষ্ঠতল — সকল সূত্র</p></div></div>
+  <div class="grid">
+    <div class="card red">
+      <div class="ct">🔷 ২D আকৃতির সূত্র</div>
+      <table class="nt">
+        <tr><th>আকৃতি</th><th>ক্ষেত্রফল</th><th>পরিসীমা</th></tr>
+        <tr><td>বর্গ</td><td>a²</td><td>4a</td></tr>
+        <tr><td>আয়তক্ষেত্র</td><td>l×b</td><td>2(l+b)</td></tr>
+        <tr><td>ত্রিভুজ</td><td>½×b×h</td><td>a+b+c</td></tr>
+        <tr><td>সমবাহু ত্রিভুজ</td><td>√3/4 × a²</td><td>3a</td></tr>
+        <tr><td>বৃত্ত</td><td>πr²</td><td>2πr</td></tr>
+        <tr><td>অর্ধবৃত্ত</td><td>πr²/2</td><td>πr+2r</td></tr>
+        <tr><td>সামান্তরিক</td><td>b×h</td><td>2(a+b)</td></tr>
+        <tr><td>ট্রাপিজিয়াম</td><td>½(a+b)×h</td><td>—</td></tr>
+        <tr><td>রম্বস</td><td>½×d₁×d₂</td><td>4a</td></tr>
+      </table>
+      <div class="formula">হেরন: √(s(s-a)(s-b)(s-c)), s=(a+b+c)/2</div>
+    </div>
+    <div class="card">
+      <div class="ct">🔷 ৩D আকৃতির সূত্র</div>
+      <table class="nt">
+        <tr><th>আকৃতি</th><th>আয়তন</th><th>সম্পূর্ণ পৃষ্ঠতল</th></tr>
+        <tr><td>ঘনক</td><td>a³</td><td>6a²</td></tr>
+        <tr><td>আয়তঘন</td><td>lbh</td><td>2(lb+bh+hl)</td></tr>
+        <tr><td>গোলক</td><td>4/3 πr³</td><td>4πr²</td></tr>
+        <tr><td>অর্ধগোলক</td><td>2/3 πr³</td><td>3πr²</td></tr>
+        <tr><td>সিলিন্ডার</td><td>πr²h</td><td>2πr(r+h)</td></tr>
+        <tr><td>শঙ্কু</td><td>⅓πr²h</td><td>πr(r+l)</td></tr>
+      </table>
+      <div class="formula">শঙ্কুর তির্যক উচ্চতা: l = √(r²+h²)</div>
+    </div>
+    <div class="card green">
+      <div class="ct">🔷 বৃত্তচাপ ও সেক্টর</div>
+      <div class="formula">বৃত্তচাপ = (θ/360°) × 2πr</div>
+      <div class="formula">সেক্টর ক্ষেত্রফল = (θ/360°) × πr²</div>
+      <div class="formula">সিলিন্ডার বক্রপৃষ্ঠ = 2πrh</div>
+      <div class="formula">শঙ্কু বক্রপৃষ্ঠ = πrl</div>
+      <div class="rem">⚡ π = 22/7 ব্যবহার করো পরীক্ষায়</div>
+    </div>
+    <div class="card yellow">
+      <div class="ct">🔷 একক রূপান্তর ও বিশেষ তথ্য</div>
+      <table class="nt">
+        <tr><th>একক</th><th>রূপান্তর</th></tr>
+        <tr><td>1 m</td><td>100 cm</td></tr>
+        <tr><td>1 km</td><td>1000 m</td></tr>
+        <tr><td>1 হেক্টর</td><td>10000 m²</td></tr>
+        <tr><td>1 বর্গ km</td><td>100 হেক্টর</td></tr>
+        <tr><td>1 লিটার</td><td>1000 cm³</td></tr>
+      </table>
+      <div class="hl blue">💡 ক্ষেত্রফল দ্বিগুণ → বাহু √2 গুণ</div>
+      <div class="hl">📌 আয়তন দ্বিগুণ → বাহু ∛2 গুণ</div>
+    </div>
+  </div>
+</div>
+
+<!-- CH17 -->
+<div id="ch17" class="chapter">
+  <div class="ch-head"><span class="ico">📊</span><div><h1>অধ্যায় ১৭: পরিসংখ্যান</h1><p>Statistics | গড়, মধ্যক, প্রচুরক, প্রমাণ বিচ্যুতি, লেখচিত্র</p></div></div>
+  <div class="grid">
+    <div class="card red">
+      <div class="ct">🔷 কেন্দ্রীয় প্রবণতার পরিমাপ</div>
+      <div class="divl">গাণিতিক গড় (Mean)</div>
+      <div class="formula">x̄ = Σx / n</div>
+      <div class="formula">শ্রেণীবদ্ধ: x̄ = Σ(f×x) / Σf</div>
+      <div class="divl">মধ্যক (Median)</div>
+      <div class="formula">বিজোড় n: {(n+1)/2}-তম মান</div>
+      <div class="formula">জোড় n: (n/2 ও n/2+1)-তম মানের গড়</div>
+      <div class="divl">প্রচুরক (Mode)</div>
+      <p style="font-size:13px;margin:6px 0">সবচেয়ে বেশি বার আসা মানটিই প্রচুরক</p>
+      <div class="rem">⚡ উপাত্ত সাজিয়ে নিলে মধ্যক ও প্রচুরক সহজেই বের হয়!</div>
+    </div>
+    <div class="card">
+      <div class="ct">🔷 শ্রেণীবদ্ধ উপাত্তের মধ্যক</div>
+      <div class="formula">মধ্যক = L + {(n/2 − F)/f} × h</div>
+      <table class="nt">
+        <tr><th>চিহ্ন</th><th>অর্থ</th></tr>
+        <tr><td>L</td><td>মধ্যক শ্রেণির নিম্নসীমা</td></tr>
+        <tr><td>n</td><td>মোট গণসংখ্যা</td></tr>
+        <tr><td>F</td><td>আগের ক্রমযোজিত গণ</td></tr>
+        <tr><td>f</td><td>মধ্যক শ্রেণির গণ</td></tr>
+        <tr><td>h</td><td>শ্রেণি ব্যাপ্তি</td></tr>
+      </table>
+      <div class="hl blue">💡 মধ্যক শ্রেণি = n/2 বা তার বেশি হওয়া প্রথম শ্রেণি</div>
+    </div>
+    <div class="card green">
+      <div class="ct">🔷 বিস্তারের পরিমাপ</div>
+      <div class="formula">পরিসর = সর্বোচ্চ − সর্বনিম্ন</div>
+      <div class="formula">গড় বিচ্যুতি: MD = Σ|x−x̄| / n</div>
+      <div class="formula">প্রমাণ বিচ্যুতি: σ = √{Σ(x−x̄)²/n}</div>
+      <div class="formula">সহজ: σ = √{(Σx²/n) − (x̄)²}</div>
+      <div class="formula">CV = (σ / x̄) × 100%</div>
+      <div class="rem">⚡ CV কম = উপাত্ত বেশি সামঞ্জস্যপূর্ণ</div>
+    </div>
+    <div class="card yellow">
+      <div class="ct">🔷 লেখচিত্র</div>
+      <table class="nt">
+        <tr><th>লেখচিত্র</th><th>ব্যবহার</th></tr>
+        <tr><td>আয়তলেখ (Histogram)</td><td>শ্রেণীবদ্ধ গণসংখ্যা</td></tr>
+        <tr><td>গণসংখ্যা বহুভুজ</td><td>শ্রেণিমধ্যবিন্দু ও গণ</td></tr>
+        <tr><td>ওজাইভ (Ogive)</td><td>ক্রমযোজিত — মধ্যক নির্ণয়</td></tr>
+        <tr><td>বৃত্তলেখ (Pie)</td><td>শতকরা হারে তথ্য</td></tr>
+        <tr><td>দণ্ডলেখ (Bar)</td><td>তথ্য তুলনা</td></tr>
+      </table>
+      <div class="formula">বৃত্তলেখে কোণ = (গণ / মোট) × 360°</div>
+    </div>
+    <div class="card wide">
+      <div class="ct">🔷 দ্রুত পদ্ধতিতে গড় (Assumed Mean Method)</div>
+      <div class="formula">x̄ = A + (Σfd / Σf) × h</div>
+      <table class="nt">
+        <tr><th>চিহ্ন</th><th>অর্থ</th></tr>
+        <tr><td>A</td><td>অনুমিত গড় (Assumed Mean)</td></tr>
+        <tr><td>d = (x−A)/h</td><td>বিচ্যুতি ভাগ শ্রেণি ব্যাপ্তি</td></tr>
+        <tr><td>f</td><td>গণসংখ্যা</td></tr>
+        <tr><td>h</td><td>শ্রেণি ব্যাপ্তি</td></tr>
+      </table>
+      <div class="rem">⚡ বড় সংখ্যার গণনায় এই পদ্ধতি অনেক দ্রুত ও সহজ!</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showCh(id){document.getElementById('home').style.display='none';document.querySelectorAll('.chapter').forEach(c=>c.classList.remove('active'));var el=document.getElementById(id);if(el){el.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}}
+function showHome(){document.getElementById('home').style.display='block';document.querySelectorAll('.chapter').forEach(c=>c.classList.remove('active'));window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+</body>
+</html>
