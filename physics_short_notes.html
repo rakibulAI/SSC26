@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>পদার্থবিজ্ঞান - শর্ট নোট | SSC-26</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Hind Siliguri', sans-serif;
+    background: #f0f0f0;
+    color: #1a1a2e;
+  }
+
+  .page {
+    width: 900px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    page-break-after: always;
+  }
+
+  /* COVER PAGE */
+  .cover {
+    background: linear-gradient(135deg, #f0f0f0 60%, #c0392b 60%);
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    position: relative;
+  }
+
+  .cover-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #1a1a2e;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .cover-ssc {
+    font-size: 52px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+  }
+
+  .cover-title {
+    font-size: 72px;
+    font-weight: 700;
+    color: #c0392b;
+    margin-bottom: 6px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+  }
+
+  .cover-sub {
+    font-size: 28px;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 30px;
+  }
+
+  .cover-badge {
+    background: #1a1a2e;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 10px;
+  }
+
+  /* CHAPTER PAGE HEADER */
+  .chapter-header {
+    background: #1a1a2e;
+    color: white;
+    padding: 16px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .chapter-header .brand {
+    font-size: 13px;
+    font-weight: 700;
+    color: #3498db;
+    letter-spacing: 1px;
+  }
+
+  .chapter-header .chapter-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .chapter-header .subject {
+    font-size: 18px;
+    color: #c0392b;
+    font-weight: 700;
+  }
+
+  /* CONTENT AREA */
+  .content {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    background: #f8f8f8;
+  }
+
+  .content.three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .content.single {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+
+  .card.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .card.blue-border { border-top: 4px solid #3498db; }
+  .card.red-border { border-top: 4px solid #c0392b; }
+  .card.green-border { border-top: 4px solid #27ae60; }
+  .card.orange-border { border-top: 4px solid #e67e22; }
+  .card.purple-border { border-top: 4px solid #8e44ad; }
+  .card.teal-border { border-top: 4px solid #16a085; }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  .card-title.blue { background: #ebf5fb; color: #1a5276; }
+  .card-title.red { background: #fdedec; color: #922b21; }
+  .card-title.green { background: #e9f7ef; color: #1e8449; }
+  .card-title.orange { background: #fef9e7; color: #d35400; }
+  .card-title.purple { background: #f4ecf7; color: #6c3483; }
+  .card-title.teal { background: #e8f8f5; color: #0e6655; }
+
+  .card p, .card li {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #333;
+  }
+
+  .card ul { padding-left: 18px; }
+  .card ul li { margin-bottom: 3px; }
+
+  .formula-box {
+    background: #1a1a2e;
+    color: #f39c12;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    margin: 8px 0;
+    letter-spacing: 1px;
+  }
+
+  .formula-box.green-formula {
+    background: #1e8449;
+    color: #a9dfbf;
+  }
+
+  .formula-box.red-formula {
+    background: #922b21;
+    color: #f5b7b1;
+  }
+
+  .highlight-box {
+    background: #fef9e7;
+    border-left: 4px solid #f39c12;
+    padding: 8px 12px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    margin: 8px 0;
+  }
+
+  .note-box {
+    background: #eaf4fb;
+    border-left: 4px solid #3498db;
+    padding: 8px 12px;
+    border-radius: 0 6px 6px 0;
+    font-size: 12px;
+    margin: 8px 0;
+    color: #1a5276;
+  }
+
+  .remember-box {
+    background: #fdedec;
+    border: 2px dashed #c0392b;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin: 8px 0;
+    color: #922b21;
+    font-weight: 600;
+  }
+
+  .table-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .table-cell {
+    background: #f0f3f4;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .table-cell.header {
+    background: #1a1a2e;
+    color: white;
+    font-weight: 700;
+  }
+
+  .table-cell.blue-cell { background: #ebf5fb; }
+  .table-cell.green-cell { background: #e9f7ef; }
+
+  .flow-chart {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0;
+  }
+
+  .flow-item {
+    background: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .flow-arrow {
+    color: #c0392b;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #c0392b;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 4px;
+  }
+
+  .badge.blue { background: #3498db; }
+  .badge.green { background: #27ae60; }
+  .badge.orange { background: #e67e22; }
+
+  .section-divider {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 2px;
+  }
+
+  .two-col-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-top: 6px;
+  }
+
+  .list-item {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .list-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .icon-blue { background: #3498db; }
+  .icon-red { background: #c0392b; }
+  .icon-green { background: #27ae60; }
+  .icon-orange { background: #e67e22; }
+
+  /* Wave decoration bottom of header */
+  .wave-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #c0392b, #e74c3c, #3498db, #2ecc71, #c0392b);
+    background-size: 200%;
+  }
+
+  .topic-number {
+    background: #c0392b;
+    color: white;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  .topic-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  @media print {
+    .page { box-shadow: none; margin: 0; border-radius: 0; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-logo">REDWAN'S METHOD</div>
+    <div class="cover-ssc">SSC-26</div>
+    <div class="cover-title">পদার্থবিজ্ঞান</div>
+    <div class="cover-sub">Short Note</div>
+    <div style="color:#555; font-size:16px; margin-bottom:20px;">অধ্যায়: ১, ২, ৩ ও ৭</div>
+    <div class="cover-badge">REVISION MATERIAL</div>
+    <div style="margin-top:30px; font-size:13px; color:#888;">by Junnurain Khan</div>
+  </div>
+</div>
+
+<!-- CHAPTER 1: ভৌত রাশি ও পরিমাপ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="brand">REDWAN'S METHOD</div>
+    <div style="text-align:center;">
+      <div class="subject">পদার্থবিজ্ঞান</div>
+      <div class="chapter-title">অধ্যায় ০১: ভৌত রাশি ও পরিমাপ</div>
+    </div>
+    <div style="font-size:13px; color:#aaa;">SHORT NOTES</div>
+  </div>
+  <div class="wave-bar"></div>
+
+  <div class="content">
+
+    <!-- Topic 1 -->
+    <div class="card blue-border">
+      <div class="topic-header">
+        <span class="topic-number">১</span>
+        <div class="card-title blue">ভৌত রাশি কী?</div>
+      </div>
+      <p>যে সকল রাশি পরিমাপ করা যায় এবং সংখ্যায় প্রকাশ করা যায়, তাদের <strong>ভৌত রাশি</strong> বলে।</p>
+      <div class="highlight-box">উদাহরণ: দৈর্ঘ্য, ভর, সময়, তাপমাত্রা, বেগ ইত্যাদি।</div>
+      <p style="margin-top:8px;"><strong>ভৌত রাশি ২ প্রকার:</strong></p>
+      <div class="two-col-list" style="margin-top:6px;">
+        <div class="list-item">
+          <div class="list-icon icon-blue">মূ</div>
+          <span><strong>মূল রাশি:</strong> স্বাধীন (৭টি)</span>
+        </div>
+        <div class="list-item">
+          <div class="list-icon icon-red">লব্</div>
+          <span><strong>লব্ধ রাশি:</strong> মূল থেকে তৈরি</span>
+        </div>
+      </div>
+      <div class="note-box" style="margin-top:10px;">
+        <strong>৭টি মূল রাশি:</strong> দৈর্ঘ্য, ভর, সময়, তড়িৎ প্রবাহ, তাপমাত্রা, দীপন তীব্রতা, পদার্থের পরিমাণ
+      </div>
+    </div>
+
+    <!-- Topic 2: SI এককের তালিকা -->
+    <div class="card red-border">
+      <div class="topic-header">
+        <span class="topic-number">২</span>
+        <div class="card-title red">মূল রাশির SI একক</div>
+      </div>
+      <div class="table-grid">
+        <div class="table-cell header">রাশি</div>
+        <div class="table-cell header">SI একক</div>
+        <div class="table-cell blue-cell">দৈর্ঘ্য</div>
+        <div class="table-cell">মিটার (m)</div>
+        <div class="table-cell blue-cell">ভর</div>
+        <div class="table-cell">কিলোগ্রাম (kg)</div>
+        <div class="table-cell blue-cell">সময়</div>
+        <div class="table-cell">সেকেন্ড (s)</div>
+        <div class="table-cell blue-cell">তড়িৎ প্রবাহ</div>
+        <div class="table-cell">অ্যাম্পিয়ার (A)</div>
+        <div class="table-cell blue-cell">তাপমাত্রা</div>
+        <div class="table-cell">কেলভিন (K)</div>
+        <div class="table-cell blue-cell">দীপন তীব্রতা</div>
+        <div class="table-cell">ক্যান্ডেলা (cd)</div>
+        <div class="table-cell blue-cell">পদার্থের পরিমাণ</div>
+        <div class="table-cell">মোল (mol)</div>
+      </div>
+    </div>
+
+    <!-- Topic 3: স্কেলার ও ভেক্টর -->
+    <div class="card green-border">
+      <div class="topic-header">
+        <span class="topic-number">৩</span>
+        <div class="card-title green">স্কেলার ও ভেক্টর রাশি</div>
+      </div>
+      <div class="table-grid">
+        <div class="table-cell header">স্কেলার</div>
+        <div class="table-cell header">ভেক্টর</div>
+        <div class="table-cell" style="font-size:11px;">শুধু মান আছে, দিক নেই</div>
+        <div class="table-cell" style="font-size:11px;">মান ও দিক উভয়ই আছে</div>
+        <div class="table-cell blue-cell">ভর, দ্রুতি, দূরত্ব, তাপমাত্রা</div>
+        <div class="table-cell green-cell">বেগ, ত্বরণ, বল, সরণ</div>
+      </div>
+      <div class="remember-box" style="margin-top:10px;">
+        মনে রাখো: দূরত্ব = স্কেলার, সরণ = ভেক্টর!
+      </div>
+    </div>
+
+    <!-- Topic 4: পরিমাপের যন্ত্রপাতি -->
+    <div class="card orange-border">
+      <div class="topic-header">
+        <span class="topic-number">৪</span>
+        <div class="card-title orange">পরিমাপের যন্ত্রপাতি</div>
+      </div>
+      <ul>
+        <li><strong>স্লাইড ক্যালিপার্স:</strong> ক্ষুদ্র দৈর্ঘ্য মাপতে (0.01 cm নির্ভুলতা)</li>
+        <li><strong>স্ক্রু গজ:</strong> তারের ব্যাস মাপতে (0.001 cm নির্ভুলতা)</li>
+        <li><strong>ভার্নিয়ার স্কেল:</strong> দৈর্ঘ্য পরিমাপে সাহায্যকারী</li>
+        <li><strong>থামাঘড়ি (Stopwatch):</strong> সময় পরিমাপ</li>
+      </ul>
+      <div class="formula-box" style="margin-top:10px;">
+        ভার্নিয়ার ধ্রুবক = 1 MSD − 1 VSD
+      </div>
+    </div>
+
+    <!-- Topic 5: পরিমাপে ত্রুটি -->
+    <div class="card purple-border full-width">
+      <div class="topic-header">
+        <span class="topic-number">৫</span>
+        <div class="card-title purple">পরিমাপে ত্রুটি ও বৈজ্ঞানিক প্রতীক</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div>
+          <p><strong>পরিমাপে ত্রুটির কারণ:</strong></p>
+          <ul style="margin-top:6px;">
+            <li>যন্ত্রের ত্রুটি (Systematic error)</li>
+            <li>দৈব ত্রুটি (Random error)</li>
+            <li>পর্যবেক্ষণকারীর ভুল</li>
+          </ul>
+        </div>
+        <div>
+          <p><strong>গুরুত্বপূর্ণ উপসর্গ (Prefix):</strong></p>
+          <div class="table-grid" style="margin-top:6px;">
+            <div class="table-cell blue-cell">মিলি (m) = 10⁻³</div>
+            <div class="table-cell blue-cell">সেন্টি (c) = 10⁻²</div>
+            <div class="table-cell green-cell">কিলো (k) = 10³</div>
+            <div class="table-cell green-cell">মেগা (M) = 10⁶</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CHAPTER 2: গতি -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="brand">REDWAN'S METHOD</div>
+    <div style="text-align:center;">
+      <div class="subject">পদার্থবিজ্ঞান</div>
+      <div class="chapter-title">অধ্যায় ০২: গতি</div>
+    </div>
+    <div style="font-size:13px; color:#aaa;">SHORT NOTES</div>
+  </div>
+  <div class="wave-bar"></div>
+
+  <div class="content">
+
+    <div class="card blue-border">
+      <div class="topic-header">
+        <span class="topic-number">১</span>
+        <div class="card-title blue">গতি ও বিভিন্ন ধারণা</div>
+      </div>
+      <ul>
+        <li><strong>দূরত্ব:</strong> মোট অতিক্রান্ত পথ (স্কেলার)</li>
+        <li><strong>সরণ:</strong> নির্দিষ্ট দিকে সরাসরি দূরত্ব (ভেক্টর)</li>
+        <li><strong>দ্রুতি:</strong> একক সময়ে দূরত্ব (স্কেলার)</li>
+        <li><strong>বেগ:</strong> একক সময়ে সরণ (ভেক্টর)</li>
+        <li><strong>ত্বরণ:</strong> সময়ের সাথে বেগের পরিবর্তন</li>
+      </ul>
+      <div class="formula-box" style="margin-top:10px;">
+        দ্রুতি = দূরত্ব / সময় &nbsp;|&nbsp; বেগ = সরণ / সময়
+      </div>
+      <div class="formula-box">
+        ত্বরণ (a) = (v − u) / t
+      </div>
+    </div>
+
+    <div class="card red-border">
+      <div class="topic-header">
+        <span class="topic-number">২</span>
+        <div class="card-title red">গতির সমীকরণ (৩টি)</div>
+      </div>
+      <div class="formula-box" style="margin-bottom:8px;">① v = u + at</div>
+      <div class="formula-box" style="margin-bottom:8px;">② s = ut + ½at²</div>
+      <div class="formula-box">③ v² = u² + 2as</div>
+      <div class="note-box" style="margin-top:10px;">
+        <strong>যেখানে:</strong><br>
+        u = আদিবেগ, v = শেষবেগ<br>
+        a = ত্বরণ, s = সরণ, t = সময়
+      </div>
+      <div class="remember-box">
+        মুক্তভাবে পড়ন্ত বস্তুর ক্ষেত্রে a = g = 9.8 m/s²
+      </div>
+    </div>
+
+    <div class="card green-border">
+      <div class="topic-header">
+        <span class="topic-number">৩</span>
+        <div class="card-title green">গতির প্রকারভেদ</div>
+      </div>
+      <ul>
+        <li><strong>সমগতি:</strong> সমান সময়ে সমান সরণ</li>
+        <li><strong>অসমগতি:</strong> বেগের পরিবর্তন ঘটে</li>
+        <li><strong>সমত্বরণ:</strong> ত্বরণ ধ্রুবক</li>
+        <li><strong>পর্যাবৃত্ত গতি:</strong> নির্দিষ্ট পথে বারবার চলে (দোলক)</li>
+        <li><strong>বৃত্তীয় গতি:</strong> বৃত্তপথে গতি</li>
+      </ul>
+      <div class="highlight-box" style="margin-top:10px;">
+        সমগতিতে ত্বরণ = 0 এবং গতিপথ সরলরেখা
+      </div>
+    </div>
+
+    <div class="card orange-border">
+      <div class="topic-header">
+        <span class="topic-number">৪</span>
+        <div class="card-title orange">গ্রাফ বিশ্লেষণ</div>
+      </div>
+      <div class="table-grid">
+        <div class="table-cell header">গ্রাফ</div>
+        <div class="table-cell header">তথ্য</div>
+        <div class="table-cell blue-cell">s-t গ্রাফ</div>
+        <div class="table-cell">ঢাল = বেগ</div>
+        <div class="table-cell blue-cell">v-t গ্রাফ</div>
+        <div class="table-cell">ঢাল = ত্বরণ</div>
+        <div class="table-cell blue-cell">v-t গ্রাফ</div>
+        <div class="table-cell">ক্ষেত্রফল = সরণ</div>
+      </div>
+      <div class="note-box" style="margin-top:8px;">
+        সমগতিতে s-t গ্রাফ সরলরেখা; সমত্বরণে বক্ররেখা
+      </div>
+    </div>
+
+    <div class="card purple-border full-width">
+      <div class="topic-header">
+        <span class="topic-number">৫</span>
+        <div class="card-title purple">গুরুত্বপূর্ণ সূত্র একনজরে</div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px;">
+        <div class="formula-box">গড় বেগ = (u+v)/2</div>
+        <div class="formula-box green-formula">মুক্তপতনে: h = ½gt²</div>
+        <div class="formula-box red-formula">v = √(2gh)</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CHAPTER 3: বল -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="brand">REDWAN'S METHOD</div>
+    <div style="text-align:center;">
+      <div class="subject">পদার্থবিজ্ঞান</div>
+      <div class="chapter-title">অধ্যায় ০৩: বল</div>
+    </div>
+    <div style="font-size:13px; color:#aaa;">SHORT NOTES</div>
+  </div>
+  <div class="wave-bar"></div>
+
+  <div class="content">
+
+    <div class="card blue-border">
+      <div class="topic-header">
+        <span class="topic-number">১</span>
+        <div class="card-title blue">নিউটনের গতিসূত্র</div>
+      </div>
+      <div class="highlight-box"><strong>১ম সূত্র (জাড্যের সূত্র):</strong> বাইরে থেকে বল না লাগলে স্থির বস্তু স্থির এবং গতিশীল বস্তু সমবেগে চলতে থাকে।</div>
+      <div class="highlight-box"><strong>২য় সূত্র (ভরবেগের সূত্র):</strong> বলের পরিমাণ ভরবেগের পরিবর্তনের হারের সমান।</div>
+      <div class="highlight-box"><strong>৩য় সূত্র (ক্রিয়া-প্রতিক্রিয়া):</strong> প্রতিটি ক্রিয়ার সমান ও বিপরীত প্রতিক্রিয়া আছে।</div>
+      <div class="formula-box">F = ma</div>
+    </div>
+
+    <div class="card red-border">
+      <div class="topic-header">
+        <span class="topic-number">২</span>
+        <div class="card-title red">ভরবেগ ও আবেগ</div>
+      </div>
+      <ul>
+        <li><strong>ভরবেগ (p):</strong> ভর × বেগ → p = mv</li>
+        <li>ভরবেগ একটি <strong>ভেক্টর</strong> রাশি</li>
+        <li>একক: kg·m/s</li>
+      </ul>
+      <div class="formula-box" style="margin-top:8px;">আবেগ (J) = F × t = Δp</div>
+      <div class="note-box">
+        ভরবেগের সংরক্ষণ সূত্র: বাইরে থেকে কোনো বল না লাগলে মোট ভরবেগ ধ্রুবক থাকে।
+      </div>
+      <div class="remember-box">m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂</div>
+    </div>
+
+    <div class="card green-border">
+      <div class="topic-header">
+        <span class="topic-number">৩</span>
+        <div class="card-title green">ঘর্ষণ বল</div>
+      </div>
+      <ul>
+        <li><strong>স্থিতি ঘর্ষণ:</strong> গতি শুরুর আগে</li>
+        <li><strong>গতি ঘর্ষণ:</strong> গতির সময়</li>
+        <li><strong>আবর্ত ঘর্ষণ:</strong> গড়ানো বস্তুর ক্ষেত্রে</li>
+      </ul>
+      <div class="formula-box green-formula" style="margin-top:8px;">
+        f = μN
+      </div>
+      <div class="note-box">
+        μ = ঘর্ষণ গুণাঙ্ক, N = অভিলম্ব প্রতিক্রিয়া<br>
+        স্থিতি ঘর্ষণ > গতি ঘর্ষণ > আবর্ত ঘর্ষণ
+      </div>
+    </div>
+
+    <div class="card orange-border">
+      <div class="topic-header">
+        <span class="topic-number">৪</span>
+        <div class="card-title orange">মহাকর্ষ ও অভিকর্ষ</div>
+      </div>
+      <div class="formula-box" style="margin-bottom:8px;">F = Gm₁m₂/r²</div>
+      <ul>
+        <li>G = 6.673 × 10⁻¹¹ N·m²/kg²</li>
+        <li><strong>অভিকর্ষজ ত্বরণ:</strong> g = 9.8 m/s²</li>
+        <li>ওজন = ভর × g → W = mg</li>
+      </ul>
+      <div class="highlight-box" style="margin-top:8px;">
+        g-এর মান মেরুতে সবচেয়ে বেশি এবং বিষুবীয় অঞ্চলে সবচেয়ে কম।
+      </div>
+    </div>
+
+    <div class="card teal-border full-width">
+      <div class="topic-header">
+        <span class="topic-number">৫</span>
+        <div class="card-title teal">বলের প্রকারভেদ ও গুরুত্বপূর্ণ তথ্য</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+        <div>
+          <p><strong>মৌলিক বল (৪টি):</strong></p>
+          <ul style="margin-top:6px;">
+            <li>মহাকর্ষ বল</li>
+            <li>তড়িৎচুম্বকীয় বল</li>
+            <li>শক্তিশালী নিউক্লিয় বল</li>
+            <li>দুর্বল নিউক্লিয় বল</li>
+          </ul>
+        </div>
+        <div>
+          <p><strong>যোগাযোগ বল:</strong></p>
+          <ul style="margin-top:6px;">
+            <li>ঘর্ষণ বল</li>
+            <li>অভিলম্ব বল</li>
+            <li>টান বা টেনশন</li>
+          </ul>
+        </div>
+        <div>
+          <div class="formula-box">ভার = mg</div>
+          <div class="formula-box green-formula" style="margin-top:6px;">p = mv</div>
+          <div class="formula-box red-formula" style="margin-top:6px;">F = Δp/t</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CHAPTER 7: তরঙ্গ ও শব্দ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="brand">REDWAN'S METHOD</div>
+    <div style="text-align:center;">
+      <div class="subject">পদার্থবিজ্ঞান</div>
+      <div class="chapter-title">অধ্যায় ০৭: তরঙ্গ ও শব্দ</div>
+    </div>
+    <div style="font-size:13px; color:#aaa;">SHORT NOTES</div>
+  </div>
+  <div class="wave-bar"></div>
+
+  <div class="content">
+
+    <div class="card blue-border">
+      <div class="topic-header">
+        <span class="topic-number">১</span>
+        <div class="card-title blue">তরঙ্গের সংজ্ঞা ও প্রকারভেদ</div>
+      </div>
+      <p>যে পর্যায়বৃত্ত আন্দোলন মাধ্যমের একস্থান থেকে অন্যস্থানে শক্তি সঞ্চারিত করে তাকে <strong>তরঙ্গ</strong> বলে।</p>
+      <div class="table-grid" style="margin-top:10px;">
+        <div class="table-cell header">অনুপ্রস্থ তরঙ্গ</div>
+        <div class="table-cell header">অনুদৈর্ঘ্য তরঙ্গ</div>
+        <div class="table-cell" style="font-size:11px;">কণার কম্পন তরঙ্গের লম্বদিকে</div>
+        <div class="table-cell" style="font-size:11px;">কণার কম্পন তরঙ্গের সমান্তরালে</div>
+        <div class="table-cell blue-cell">আলোক তরঙ্গ, পানির ঢেউ</div>
+        <div class="table-cell green-cell">শব্দ তরঙ্গ</div>
+      </div>
+    </div>
+
+    <div class="card red-border">
+      <div class="topic-header">
+        <span class="topic-number">২</span>
+        <div class="card-title red">তরঙ্গের বৈশিষ্ট্য</div>
+      </div>
+      <ul>
+        <li><strong>তরঙ্গদৈর্ঘ্য (λ):</strong> দুটি ক্রমাগত তরঙ্গশীর্ষের দূরত্ব</li>
+        <li><strong>কম্পাঙ্ক (f):</strong> প্রতি সেকেন্ডে কম্পন সংখ্যা (Hz)</li>
+        <li><strong>পর্যায়কাল (T):</strong> একটি পূর্ণ কম্পনের সময়</li>
+        <li><strong>বিস্তার (A):</strong> সাম্যাবস্থা থেকে সর্বোচ্চ সরণ</li>
+      </ul>
+      <div class="formula-box" style="margin-top:10px;">v = fλ &nbsp;|&nbsp; T = 1/f</div>
+    </div>
+
+    <div class="card green-border">
+      <div class="topic-header">
+        <span class="topic-number">৩</span>
+        <div class="card-title green">শব্দের বৈশিষ্ট্য</div>
+      </div>
+      <ul>
+        <li>শব্দ একটি <strong>অনুদৈর্ঘ্য তরঙ্গ</strong></li>
+        <li>শব্দের বেগ (বায়ুতে) ≈ <strong>340 m/s</strong> (20°C তে)</li>
+        <li>কঠিনে শব্দের বেগ সবচেয়ে বেশি</li>
+        <li>শূন্যে শব্দ চলতে পারে না</li>
+        <li>তাপমাত্রা বাড়লে শব্দের বেগ বাড়ে</li>
+      </ul>
+      <div class="formula-box green-formula" style="margin-top:8px;">
+        v_শব্দ (বায়ুতে) ≈ 332 + 0.6t m/s
+      </div>
+    </div>
+
+    <div class="card orange-border">
+      <div class="topic-header">
+        <span class="topic-number">৪</span>
+        <div class="card-title orange">প্রতিধ্বনি ও অনুরণন</div>
+      </div>
+      <ul>
+        <li><strong>প্রতিধ্বনি:</strong> শব্দ প্রতিফলিত হয়ে ফিরে আসা</li>
+        <li>প্রতিধ্বনি শুনতে হলে ন্যূনতম দূরত্ব <strong>17 m</strong></li>
+        <li><strong>অনুরণন:</strong> স্বাভাবিক কম্পাঙ্কে কম্পন বৃদ্ধি পাওয়া</li>
+        <li><strong>শ্রবণযোগ্য শব্দ:</strong> 20 Hz – 20,000 Hz</li>
+      </ul>
+      <div class="formula-box" style="margin-top:8px;">
+        d = v × t / 2
+      </div>
+      <div class="note-box">
+        d = প্রতিফলকের দূরত্ব, t = শব্দ ফিরে আসতে সময়
+      </div>
+    </div>
+
+    <div class="card purple-border">
+      <div class="topic-header">
+        <span class="topic-number">৫</span>
+        <div class="card-title purple">শব্দের তীক্ষ্ণতা ও প্রাবল্য</div>
+      </div>
+      <ul>
+        <li><strong>তীক্ষ্ণতা (Pitch):</strong> কম্পাঙ্কের উপর নির্ভর করে</li>
+        <li><strong>প্রাবল্য (Loudness):</strong> বিস্তারের উপর নির্ভর করে</li>
+        <li><strong>শব্দের মান:</strong> ডেসিবেল (dB) এ মাপা হয়</li>
+        <li>স্বাভাবিক কথোপকথন ≈ 60 dB</li>
+        <li>বেদনাদায়ক শব্দ > 120 dB</li>
+      </ul>
+      <div class="remember-box" style="margin-top:8px;">
+        অতিশব্দ > 20,000 Hz (বাদুড়, ডলফিন)
+        অবশব্দ < 20 Hz (হাতি)
+      </div>
+    </div>
+
+    <div class="card teal-border">
+      <div class="topic-header">
+        <span class="topic-number">৬</span>
+        <div class="card-title teal">গুরুত্বপূর্ণ সূত্র একনজরে</div>
+      </div>
+      <div class="formula-box" style="margin-bottom:6px;">v = fλ</div>
+      <div class="formula-box green-formula" style="margin-bottom:6px;">T = 1/f</div>
+      <div class="formula-box red-formula" style="margin-bottom:6px;">d = vt/2 (প্রতিধ্বনি)</div>
+      <div class="highlight-box">
+        <strong>মনে রাখো:</strong> বায়ুতে শব্দের বেগ > পানিতে নয়! কঠিন > তরল > বায়বীয় মাধ্যমে বেগ বেশি।
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
